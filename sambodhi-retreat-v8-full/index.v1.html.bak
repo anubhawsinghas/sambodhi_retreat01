@@ -1,0 +1,584 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Sambodhi Retreat — Luxury Resort in Bodhgaya, Bihar</title>
+<meta name="description" content="Sambodhi Retreat, Bodhgaya. Sixty rooms across grass-clad cave cottages, igloos, timber cottages on stilts and pyramid cottages, set beside a swimming pool and the river Falgu.">
+<link rel="canonical" href="https://www.sambodhiretreat.org/">
+<script>document.documentElement.className += ' js';</script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="preconnect" href="https://www.sambodhiretreat.org">
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;1,300;1,400&family=Jost:wght@200;300;400;500&family=Marcellus&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="assets/css/site.css">
+</head>
+<body>
+
+<a class="skip-link" href="#main">Skip to content</a>
+
+<div class="page-fade" aria-hidden="true">
+  <svg class="page-fade__leaf" viewBox="0 0 40 58" fill="none"><path d="M20 54C13 44 4 37 3.5 27 3 17 10 11 15 14c2.2 1.4 3.8 3.6 5 6 1.2-2.4 2.8-4.6 5-6 5-3 12 3 11.5 13-.5 10-9.5 17-16.5 27Z" stroke="currentColor" stroke-width="1.05" stroke-linejoin="round"/><path d="M20 4v50" stroke="currentColor" stroke-width="1.05"/></svg>
+</div>
+
+<!-- ============================ HEADER ============================ -->
+<header class="hdr">
+  <div class="hdr__inner">
+    <a class="brand" href="index.html">Sambodhi<span class="brand__sub">Retreat · Bodhgaya</span></a>
+
+    <nav class="nav" aria-label="Primary">
+      <a href="index.html" aria-current="page">Home</a>
+      <a href="accommodations.html">Accommodations</a>
+      <a href="banquet-halls.html">Banquet Halls</a>
+      <a href="event-venue.html">Event Venue</a>
+      <a href="dining.html">Dining</a>
+      <a href="gallery.html">Gallery</a>
+      <a href="blog.html">Blog</a>
+      <a href="contact.html">Contact</a>
+    </nav>
+
+    <div class="hdr__cta">
+      <a class="btn btn--gold magnetic" href="https://live.ipms247.com/booking/book-rooms-sambodhiretreat" target="_blank" rel="noopener">Book now</a>
+      <button class="burger" aria-label="Open menu" aria-expanded="false" aria-controls="drawer"><span></span><span></span></button>
+    </div>
+  </div>
+</header>
+
+<div class="drawer" id="drawer" aria-hidden="true">
+  <nav class="drawer__nav" aria-label="Mobile">
+    <a href="index.html" aria-current="page">Home</a>
+    <a href="accommodations.html">Accommodations</a>
+    <a href="banquet-halls.html">Banquet Halls</a>
+    <a href="event-venue.html">Event Venue</a>
+    <a href="dining.html">Dining</a>
+    <a href="gallery.html">Gallery</a>
+    <a href="blog.html">Blog</a>
+    <a href="contact.html">Contact</a>
+  </nav>
+  <div class="drawer__foot">
+    <a href="tel:+917488535210">+91 74885 35210</a>
+    <a href="mailto:info@sambodhiretreat.com">info@sambodhiretreat.com</a>
+    <a class="btn btn--gold" href="https://live.ipms247.com/booking/book-rooms-sambodhiretreat" target="_blank" rel="noopener">Book now</a>
+  </div>
+</div>
+
+<main id="main">
+
+<!-- ============================== HERO ============================== -->
+<section class="hero" data-mouse-parallax>
+  <div class="hero__media" data-depth="0.35">
+    <div class="hero__slide is-active" style="background-image:url('https://www.sambodhiretreat.org/images/Homepage_Resort_INDEX/top-slider-img8.jpg')"></div>
+    <div class="hero__slide" style="background-image:url('https://www.sambodhiretreat.org/images/Homepage_Resort_INDEX/top-slider-img3.jpg')"></div>
+    <div class="hero__slide" style="background-image:url('https://www.sambodhiretreat.org/images/Homepage_Resort_INDEX/top-slider-img7.jpg')"></div>
+    <div class="hero__slide" style="background-image:url('https://www.sambodhiretreat.org/images/Homepage_Resort_INDEX/top-slider-img1a.jpg')"></div>
+  </div>
+  <div class="hero__scrim"></div>
+  <div class="hero__motes" aria-hidden="true"></div>
+  <div class="hero__grain" aria-hidden="true"></div>
+
+  <div class="hero__body" data-depth="0.09">
+    <p class="eyebrow hero__eyebrow is-in">Bodhgaya · Bihar</p>
+    <p class="hero__mark">Sambodhi Retreat</p>
+    <h1 class="hero__title">
+      <span class="line"><span>A quiet estate</span></span>
+      <span class="line"><span>in the land of</span></span>
+      <span class="line"><span><em>enlightenment.</em></span></span>
+    </h1>
+    <p class="hero__lede">Grass-clad caves, cottages raised on stilts and a pyramid of pine — arranged between a swimming pool and the river Falgu.</p>
+    <div class="btn-row hero__actions">
+      <a class="btn btn--light magnetic" href="accommodations.html">Explore the retreat
+        <svg class="btn__arrow" viewBox="0 0 15 9" fill="none" aria-hidden="true"><path d="M10 1l4 3.5L10 8M0 4.5h14" stroke="currentColor" stroke-width="1"/></svg>
+      </a>
+      <a class="btn btn--gold magnetic" href="https://live.ipms247.com/booking/book-rooms-sambodhiretreat" target="_blank" rel="noopener">Book your stay</a>
+    </div>
+  </div>
+
+  <div class="hero__scroll" aria-hidden="true">
+    <span>Scroll</span>
+    <i class="hero__scroll-line"></i>
+  </div>
+</section>
+
+<!-- ==================== 01 · WELCOME (image L / text R) ==================== -->
+<section class="section">
+  <div class="wrap split">
+    <div class="col-6 bleed-l" data-reveal="left">
+      <figure class="frame frame--plx frame--tall" style="margin:0">
+        <img src="https://www.sambodhiretreat.org/images/Homepage_Resort_INDEX/top-slider-img13.jpg" alt="The grounds at Sambodhi Retreat, Bodhgaya" data-parallax="0.34" loading="lazy" decoding="async">
+      </figure>
+    </div>
+
+    <div class="col-5" style="grid-column:span 5;" data-reveal="right">
+      <p class="eyebrow">The retreat</p>
+      <h2 class="h2 shead__title">Architecture that answers to the weather.</h2>
+      <p class="lede" style="margin-top:1.5rem;">Every building here is a different argument about how to stay cool, stay warm, and stay quiet.</p>
+      <p class="body-copy" style="margin-top:1.2rem;">The grass-clad cave cottages temper the room to the weather outside. The igloos hold an interior up to ten degrees below the air around them. The pyramid cottages are panelled in pine milled from waste packaging timber, with brick corbelled walls and a slant roof that make them energy efficient.</p>
+      <p class="body-copy">Around them: exquisitely designed rooms, organic food, village trails, a swimming pool and a splash pool.</p>
+      <div class="btn-row">
+        <a class="btn magnetic" href="accommodations.html">See the accommodation
+          <svg class="btn__arrow" viewBox="0 0 15 9" fill="none" aria-hidden="true"><path d="M10 1l4 3.5L10 8M0 4.5h14" stroke="currentColor" stroke-width="1"/></svg>
+        </a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ 02 · ACCOMMODATION (text L / image R, then cards) ============ -->
+<section class="section section--flush-top">
+  <div class="wrap">
+    <div class="split" style="margin-bottom:clamp(2.6rem,5vw,4.4rem);">
+      <div class="col-6" data-reveal="left">
+        <p class="eyebrow">Accommodations</p>
+        <h2 class="h2 shead__title">Sixty rooms. No two ideas repeated.</h2>
+        <p class="lede" style="margin-top:1.4rem;max-width:48ch;">Sambodhi Retreat is a boutique hotel of sixty rooms — twelve of them large suites, four of them family rooms.</p>
+      </div>
+      <div class="col-6 bleed-r m-order-first" data-reveal="right">
+        <figure class="frame frame--plx frame--wide" style="margin:0">
+          <img src="https://www.sambodhiretreat.org/images/Homepage_Resort_INDEX/top-slider-img11.jpg" alt="Pool area at Sambodhi Retreat" data-parallax="0.28" loading="lazy" decoding="async">
+        </figure>
+      </div>
+    </div>
+
+    <div class="rooms" data-stagger="110">
+      <!-- Green Cave -->
+      <article class="rcard tilt" data-reveal="up">
+        <div class="rcard__media">
+          <img src="https://www.sambodhiretreat.org/images/rooms-col1/sambodhi-retreat-bodhgaya-green-caves-1.jpg" alt="Green Cave Cottages" loading="lazy" decoding="async">
+          <span class="rcard__veil"></span>
+          <div class="rcard__over">
+            <h3 class="rcard__name">Green Cave Cottages</h3>
+            <ul class="rcard__specs"><li>4 guests</li><li>King</li></ul>
+          </div>
+        </div>
+        <div class="rcard__body">
+          <p class="rcard__desc">Grass-clad, facing the swimming pool with the river Falgu behind, and a clear view of the Mahabodhi temple. Four beds give two couples privacy without dropping the luxury.</p>
+          <div class="rcard__foot">
+            <p class="rcard__price"><b>₹7,000</b><span>from / night</span></p>
+            <div class="rcard__links">
+              <a href="accommodations.html#green-cave">Full details</a>
+              <a href="https://live.ipms247.com/booking/book-rooms-sambodhiretreat" target="_blank" rel="noopener">Book now</a>
+            </div>
+          </div>
+        </div>
+      </article>
+
+      <!-- Pyramid -->
+      <article class="rcard tilt" data-reveal="up">
+        <div class="rcard__media">
+          <img src="https://www.sambodhiretreat.org/images/rooms-col1/sambodhi-retreat-bodhgaya-pyramid-cottages-1.jpg" alt="Pyramid Cottage" loading="lazy" decoding="async">
+          <span class="rcard__veil"></span>
+          <div class="rcard__over">
+            <h3 class="rcard__name">Pyramid Cottage</h3>
+            <ul class="rcard__specs"><li>2–4 guests</li><li>King</li></ul>
+          </div>
+        </div>
+        <div class="rcard__body">
+          <p class="rcard__desc">A pyramid-shaped cluster panelled in pine reclaimed from packaging timber. Brick corbelled walls, a slant roof and wood rendering inside make it an energy-efficient unit.</p>
+          <div class="rcard__foot">
+            <p class="rcard__price"><b>₹6,500</b><span>from / night</span></p>
+            <div class="rcard__links">
+              <a href="accommodations.html#pyramid">Full details</a>
+              <a href="https://live.ipms247.com/booking/book-rooms-sambodhiretreat" target="_blank" rel="noopener">Book now</a>
+            </div>
+          </div>
+        </div>
+      </article>
+
+      <!-- Igloo -->
+      <article class="rcard tilt" data-reveal="up">
+        <div class="rcard__media">
+          <img src="https://www.sambodhiretreat.org/images/rooms-col1/sambodhi-retreat-bodhgaya-igloo-1.jpg" alt="Igloo House" loading="lazy" decoding="async">
+          <span class="rcard__veil"></span>
+          <div class="rcard__over">
+            <h3 class="rcard__name">Igloo House</h3>
+            <ul class="rcard__specs"><li>2 guests</li><li>King</li></ul>
+          </div>
+        </div>
+        <div class="rcard__body">
+          <p class="rcard__desc">An igloo-shaped cottage with its own splash pool — cold water, hot tea, warm snacks. The shell holds an interior up to ten degrees cooler than the air outside.</p>
+          <div class="rcard__foot">
+            <p class="rcard__price"><b>₹4,500</b><span>from / night</span></p>
+            <div class="rcard__links">
+              <a href="accommodations.html#igloo">Full details</a>
+              <a href="https://live.ipms247.com/booking/book-rooms-sambodhiretreat" target="_blank" rel="noopener">Book now</a>
+            </div>
+          </div>
+        </div>
+      </article>
+    </div>
+
+    <div class="btn-row btn-row--center" style="margin-top:clamp(2.2rem,4vw,3.4rem);">
+      <a class="btn magnetic" href="accommodations.html">All seven accommodations
+        <svg class="btn__arrow" viewBox="0 0 15 9" fill="none" aria-hidden="true"><path d="M10 1l4 3.5L10 8M0 4.5h14" stroke="currentColor" stroke-width="1"/></svg>
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- ============ 03 · BIG IMAGE (scale 0.85 → 1) + EXPERIENCES ============ -->
+<section class="section section--flush-top">
+  <div class="wrap">
+    <figure class="frame frame--pano" style="margin:0 0 clamp(2.6rem,5vw,4.6rem)" data-reveal="scale">
+      <img src="https://www.sambodhiretreat.org/images/Homepage_Resort_INDEX/learn-img1.jpg" alt="Gardens and lawns at Sambodhi Retreat" loading="lazy" decoding="async">
+      <figcaption class="frame__caption">Hathiyar, Bodhgaya</figcaption>
+    </figure>
+
+    <div class="shead shead--split">
+      <div>
+        <p class="eyebrow">Experiences</p>
+        <h2 class="h2 shead__title">Days here fill themselves.</h2>
+      </div>
+      <p class="lede">Amenities at the resort include a swimming pool, with a range of indoor and outdoor activities alongside it.</p>
+    </div>
+
+    <div class="panels" data-stagger="100">
+      <article class="panel tilt" data-reveal="clip-u">
+        <img src="https://www.sambodhiretreat.org/images/gallery/5.jpg" alt="Swimming pool" loading="lazy" decoding="async">
+        <div class="panel__in">
+          <span class="panel__label">Water</span>
+          <h3 class="panel__title">Pool &amp; splash pool</h3>
+          <p class="panel__text">A swimming pool at the centre of the grounds, with splash pools attached to the igloo cottages.</p>
+        </div>
+        <span class="panel__arrow"><svg width="12" height="12" viewBox="0 0 12 12" fill="none" aria-hidden="true"><path d="M2 10L10 2M4 2h6v6" stroke="currentColor" stroke-width="1"/></svg></span>
+      </article>
+
+      <article class="panel tilt" data-reveal="clip-u">
+        <img src="https://www.sambodhiretreat.org/images/gallery/12.jpg" alt="Village trails around the resort" loading="lazy" decoding="async">
+        <div class="panel__in">
+          <span class="panel__label">Outdoors</span>
+          <h3 class="panel__title">Village trails</h3>
+          <p class="panel__text">Walks out into the country around Hathiyar, with planned excursions arranged from the resort.</p>
+        </div>
+        <span class="panel__arrow"><svg width="12" height="12" viewBox="0 0 12 12" fill="none" aria-hidden="true"><path d="M2 10L10 2M4 2h6v6" stroke="currentColor" stroke-width="1"/></svg></span>
+      </article>
+
+      <article class="panel tilt" data-reveal="clip-u">
+        <img src="https://www.sambodhiretreat.org/images/gallery/18.jpg" alt="Courts and open ground" loading="lazy" decoding="async">
+        <div class="panel__in">
+          <span class="panel__label">Sport</span>
+          <h3 class="panel__title">Courts &amp; green</h3>
+          <p class="panel__text">Racquetball, tennis, cricket and volleyball. Painting, horse riding and table tennis can be arranged at extra cost.</p>
+        </div>
+        <span class="panel__arrow"><svg width="12" height="12" viewBox="0 0 12 12" fill="none" aria-hidden="true"><path d="M2 10L10 2M4 2h6v6" stroke="currentColor" stroke-width="1"/></svg></span>
+      </article>
+
+      <article class="panel tilt" data-reveal="clip-u">
+        <img src="https://www.sambodhiretreat.org/images/gallery/22.jpg" alt="Celebration space at the resort" loading="lazy" decoding="async">
+        <div class="panel__in">
+          <span class="panel__label">After dark</span>
+          <h3 class="panel__title">Rain dance with DJ</h3>
+          <p class="panel__text">One of the very few resorts around Bodhgaya with a rain-dance facility and a DJ.</p>
+        </div>
+        <span class="panel__arrow"><svg width="12" height="12" viewBox="0 0 12 12" fill="none" aria-hidden="true"><path d="M2 10L10 2M4 2h6v6" stroke="currentColor" stroke-width="1"/></svg></span>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- ============ 04 · DINING (two images from opposite sides) ============ -->
+<section class="section section--flush-top">
+  <div class="wrap">
+    <div class="split" style="align-items:center;">
+      <div class="col-6 bleed-l" data-reveal="clip-l">
+        <figure class="frame frame--plx frame--portrait" style="margin:0">
+          <img src="https://www.sambodhiretreat.org/images/dining/restaurant1.jpg" alt="The restaurant at Sambodhi Retreat" data-parallax="0.3" loading="lazy" decoding="async">
+        </figure>
+      </div>
+
+      <div class="col-5" style="grid-column:span 5;">
+        <div data-reveal="right">
+          <p class="eyebrow">Dining</p>
+          <h2 class="h2 shead__title">Ten years of kitchens behind one menu.</h2>
+          <p class="lede" style="margin-top:1.5rem;">The team here brings more than a decade of food and beverage experience to a room that stays professional without ever feeling formal.</p>
+          <p class="body-copy" style="margin-top:1.2rem;">The chef and his team built a menu unlike any other on the property — eating at the restaurant runs as a sequence of carefully executed dishes rather than a list of choices. Organic produce sits at the centre of it.</p>
+          <div class="btn-row">
+            <a class="btn magnetic" href="dining.html">Explore dining
+              <svg class="btn__arrow" viewBox="0 0 15 9" fill="none" aria-hidden="true"><path d="M10 1l4 3.5L10 8M0 4.5h14" stroke="currentColor" stroke-width="1"/></svg>
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="duo" style="margin-top:clamp(1.2rem,2.4vw,2rem);">
+      <figure class="frame frame--plx frame--wide" style="margin:0" data-reveal="clip-r">
+        <img src="https://www.sambodhiretreat.org/images/dining/restaurant2.jpg" alt="Dining room detail" data-parallax="0.22" loading="lazy" decoding="async">
+      </figure>
+      <figure class="frame frame--plx frame--wide" style="margin:0" data-reveal="clip-l">
+        <img src="https://www.sambodhiretreat.org/images/dining/restaurant3.jpg" alt="Table setting at the restaurant" data-parallax="0.22" loading="lazy" decoding="async">
+      </figure>
+    </div>
+  </div>
+</section>
+
+<!-- ============ 05 · STILLNESS (text rises, image clip reveal) ============ -->
+<section class="section on-dark" style="overflow:hidden;">
+  <svg class="float-leaf float-leaf--a" viewBox="0 0 40 58" fill="none" aria-hidden="true"><path d="M20 54C13 44 4 37 3.5 27 3 17 10 11 15 14c2.2 1.4 3.8 3.6 5 6 1.2-2.4 2.8-4.6 5-6 5-3 12 3 11.5 13-.5 10-9.5 17-16.5 27Z" stroke="currentColor" stroke-width="1.05"/><path d="M20 4v50" stroke="currentColor" stroke-width="1.05"/></svg>
+  <svg class="float-leaf float-leaf--b" viewBox="0 0 40 58" fill="none" aria-hidden="true"><path d="M20 54C13 44 4 37 3.5 27 3 17 10 11 15 14c2.2 1.4 3.8 3.6 5 6 1.2-2.4 2.8-4.6 5-6 5-3 12 3 11.5 13-.5 10-9.5 17-16.5 27Z" stroke="currentColor" stroke-width="1.05"/><path d="M20 4v50" stroke="currentColor" stroke-width="1.05"/></svg>
+  <svg class="float-leaf float-leaf--c" viewBox="0 0 40 58" fill="none" aria-hidden="true"><path d="M20 54C13 44 4 37 3.5 27 3 17 10 11 15 14c2.2 1.4 3.8 3.6 5 6 1.2-2.4 2.8-4.6 5-6 5-3 12 3 11.5 13-.5 10-9.5 17-16.5 27Z" stroke="currentColor" stroke-width="1.05"/><path d="M20 4v50" stroke="currentColor" stroke-width="1.05"/></svg>
+
+  <div class="wrap split">
+    <div class="col-6" data-reveal="up">
+      <p class="eyebrow">Stillness</p>
+      <h2 class="h2 shead__title">The slow part of the day.</h2>
+      <p class="lede" style="margin-top:1.5rem;">Bodhgaya is where the Buddha attained enlightenment. The retreat sits in that landscape rather than commenting on it.</p>
+      <p class="body-copy" style="margin-top:1.2rem;">On one side, the swimming pool. On the other, the river Falgu. From the green cave cottages, a clear view of the Mahabodhi temple. Between them: village trails, organic food, and rooms built to hold their own temperature so the air conditioning has less to argue with.</p>
+      <div class="btn-row">
+        <a class="btn btn--gold magnetic" href="accommodations.html">See the rooms
+          <svg class="btn__arrow" viewBox="0 0 15 9" fill="none" aria-hidden="true"><path d="M10 1l4 3.5L10 8M0 4.5h14" stroke="currentColor" stroke-width="1"/></svg>
+        </a>
+      </div>
+    </div>
+
+    <div class="col-6 bleed-r" data-reveal="clip-d">
+      <figure class="frame frame--plx frame--tall" style="margin:0">
+        <img src="https://www.sambodhiretreat.org/images/gallery/9.jpg" alt="Quiet corner of the grounds at Sambodhi Retreat" data-parallax="0.3" loading="lazy" decoding="async">
+      </figure>
+    </div>
+  </div>
+</section>
+
+<!-- ======================== 06 · DESTINATIONS ======================== -->
+<section class="section">
+  <div class="wrap">
+    <div class="shead shead--center">
+      <p class="eyebrow eyebrow--center">Destinations</p>
+      <h2 class="h2 shead__title">Two addresses.</h2>
+      <p class="lede shead__lede">Sambodhi Retreat operates properties in Bodhgaya, Bihar and in Dhanbad, Jharkhand.</p>
+    </div>
+
+    <div class="duo" data-stagger="130">
+      <a class="panel panel--wide" href="accommodations.html" data-reveal="clip-u">
+        <img src="https://www.sambodhiretreat.org/images/Homepage_Resort_INDEX/top-slider-img7.jpg" alt="Sambodhi Retreat Bodhgaya" loading="lazy" decoding="async">
+        <div class="panel__in">
+          <span class="panel__label">Bihar</span>
+          <h3 class="panel__title">Bodhgaya</h3>
+          <p class="panel__text">Hathiyar, Bodhgaya, Gaya — sixty rooms, the convention centre and the conference hall.</p>
+        </div>
+        <span class="panel__arrow"><svg width="12" height="12" viewBox="0 0 12 12" fill="none" aria-hidden="true"><path d="M2 10L10 2M4 2h6v6" stroke="currentColor" stroke-width="1"/></svg></span>
+      </a>
+
+      <a class="panel panel--wide" href="https://www.sambodhiretreat.org/top-luxury-hotel-resort-in-dhanbad.aspx" target="_blank" rel="noopener" data-reveal="clip-u">
+        <img src="https://www.sambodhiretreat.org/images/HomePage-Villas/budhha-heights.jpg" alt="Sambodhi Retreat Dhanbad" loading="lazy" decoding="async">
+        <div class="panel__in">
+          <span class="panel__label">Jharkhand</span>
+          <h3 class="panel__title">Dhanbad</h3>
+          <p class="panel__text">Jealgora, Govindpur Uttrayan, NH-2 — the sister property, with its own rooms and event spaces.</p>
+        </div>
+        <span class="panel__arrow"><svg width="12" height="12" viewBox="0 0 12 12" fill="none" aria-hidden="true"><path d="M2 10L10 2M4 2h6v6" stroke="currentColor" stroke-width="1"/></svg></span>
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- ===================== 07 · EVENTS & BANQUETS ===================== -->
+<section class="section on-ink" style="overflow:hidden;">
+  <div class="wrap">
+    <div class="shead shead--split">
+      <div data-reveal="left">
+        <p class="eyebrow">Gatherings</p>
+        <h2 class="h2 shead__title">Room for five thousand, and for twenty.</h2>
+      </div>
+      <p class="lede" data-reveal="right">Weddings, catered dinners, receptions, business conferences, birthdays and city attraction tours — planned by a team that works down to the paper napkin.</p>
+    </div>
+
+    <div class="split" style="align-items:stretch;">
+      <div class="col-7" data-reveal="clip-r">
+        <figure class="frame frame--plx frame--wide" style="margin:0;height:100%;">
+          <img src="https://www.sambodhiretreat.org/images/promotions/1.jpg" alt="International Convention Centre at Sambodhi Retreat" data-parallax="0.24" loading="lazy" decoding="async">
+        </figure>
+      </div>
+      <div class="col-5" style="grid-column:span 5;" data-reveal="left">
+        <h3 class="h3" style="margin-bottom:1.1rem;">International Convention Centre</h3>
+        <p class="body-copy" style="color:var(--muted-d);">Fifty thousand square feet, a ceiling above fifty feet and a grand ballroom, with capacity for up to 5,000 guests — 2,000 seated, 2,000 dining, 1,000 standing. Parking for roughly 800 vehicles. The resort describes it as the first and only international convention centre in Bodhgaya.</p>
+        <div class="btn-row">
+          <a class="btn btn--light magnetic" href="banquet-halls.html">Banquet halls
+            <svg class="btn__arrow" viewBox="0 0 15 9" fill="none" aria-hidden="true"><path d="M10 1l4 3.5L10 8M0 4.5h14" stroke="currentColor" stroke-width="1"/></svg>
+          </a>
+          <a class="btn btn--light magnetic" href="event-venue.html">Event venue</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ========================== 08 · GALLERY ========================== -->
+<section class="section">
+  <div class="wrap">
+    <div class="shead shead--split">
+      <div>
+        <p class="eyebrow">Gallery</p>
+        <h2 class="h2 shead__title">Take a look around.</h2>
+      </div>
+      <p class="lede">Cottages, restaurant, reception and the natural attractions next door.</p>
+    </div>
+
+    <div class="mosaic" id="homeMosaic" data-stagger="80"></div>
+
+    <div class="btn-row btn-row--center" style="margin-top:clamp(2rem,4vw,3.2rem);">
+      <a class="btn magnetic" href="gallery.html">View full gallery
+        <svg class="btn__arrow" viewBox="0 0 15 9" fill="none" aria-hidden="true"><path d="M10 1l4 3.5L10 8M0 4.5h14" stroke="currentColor" stroke-width="1"/></svg>
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- ========================== 09 · JOURNAL ========================== -->
+<section class="section section--tight" style="background:var(--sand-2);">
+  <div class="wrap">
+    <div class="shead">
+      <p class="eyebrow">Journal</p>
+      <h2 class="h2 shead__title">Stories from Sambodhi.</h2>
+    </div>
+
+    <article class="jfeature" style="margin-bottom:clamp(2.6rem,5vw,4.4rem);">
+      <div data-reveal="clip-l">
+        <figure class="frame frame--plx frame--wide" style="margin:0">
+          <img src="https://www.sambodhiretreat.org/images/Gallery/Make-Wedding-Special-at-Sambodhi-Retreat.jpg" alt="Weddings at Sambodhi Retreat" data-parallax="0.2" loading="lazy" decoding="async">
+        </figure>
+      </div>
+      <div data-reveal="right">
+        <p class="meta" style="margin-bottom:1rem;">Featured</p>
+        <h3 class="h3" style="font-size:clamp(1.5rem,2.6vw,2.1rem);margin-bottom:1.1rem;">How the best luxury resorts in Bodhgaya make wedding events special</h3>
+        <p class="body-copy">Bodhgaya is known for its spiritual weight and its landscape, and both work in favour of a wedding held here. A look at how venues and service in the city come together for the day.</p>
+        <p style="margin-top:1.6rem;">
+          <a class="tlink" href="https://www.sambodhiretreat.org/How-the-Best-Luxury-Resorts-in-Bodhgaya-Make-Wedding-Events-Special.aspx" target="_blank" rel="noopener">Read more
+            <svg width="15" height="9" viewBox="0 0 15 9" fill="none" aria-hidden="true"><path d="M10 1l4 3.5L10 8M0 4.5h14" stroke="currentColor" stroke-width="1"/></svg>
+          </a>
+        </p>
+      </div>
+    </article>
+
+    <div class="jgrid" data-stagger="110">
+      <a class="jcard" href="https://www.sambodhiretreat.org/Top-7-Organic-Foods-in-Sambodhi-Retreat.aspx" target="_blank" rel="noopener" data-reveal="up">
+        <div class="jcard__media"><img src="https://www.sambodhiretreat.org/images/Gallery/Top-7-Organic-Foods-in-Sambodhi-Retreat.jpg" alt="Organic food" loading="lazy" decoding="async"></div>
+        <h3 class="jcard__title">Top 7 organic foods to relish in luxury resorts in Bodhgaya this spring</h3>
+        <p class="jcard__excerpt">Spring is a season for revival and for eating well. Seven organic dishes worth ordering while you are here.</p>
+      </a>
+
+      <a class="jcard" href="https://www.sambodhiretreat.org/Top-5-Places-to-Visit-this-Spring-in-Bodh-Gaya.aspx" target="_blank" rel="noopener" data-reveal="up">
+        <div class="jcard__media"><img src="https://www.sambodhiretreat.org/images/Gallery/Top-5-Places-in-Bodh-Gaya.jpg" alt="Places to visit in Bodh Gaya" loading="lazy" decoding="async"></div>
+        <h3 class="jcard__title">Top 5 places to visit this spring in Bodh Gaya</h3>
+        <p class="jcard__excerpt">The city where Gautama Buddha attained enlightenment draws millions each year. Five places to start with.</p>
+      </a>
+
+      <a class="jcard" href="https://www.sambodhiretreat.org/Recreational-and-Relaxation-Activities.aspx" target="_blank" rel="noopener" data-reveal="up">
+        <div class="jcard__media"><img src="https://www.sambodhiretreat.org/images/Gallery/blog-3sam.jpg" alt="Recreation at the resort" loading="lazy" decoding="async"></div>
+        <h3 class="jcard__title">Recreational and relaxation activities to enjoy in a luxury resort in Bodhgaya</h3>
+        <p class="jcard__excerpt">What there is to do between the pool, the grounds and the excursions.</p>
+      </a>
+    </div>
+
+    <div class="btn-row btn-row--center" style="margin-top:clamp(2rem,4vw,3rem);">
+      <a class="btn magnetic" href="blog.html">All stories
+        <svg class="btn__arrow" viewBox="0 0 15 9" fill="none" aria-hidden="true"><path d="M10 1l4 3.5L10 8M0 4.5h14" stroke="currentColor" stroke-width="1"/></svg>
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- ========================== 10 · LOCATION ========================== -->
+<section class="section">
+  <div class="wrap split">
+    <div class="col-7" data-reveal="clip-l">
+      <iframe class="mapframe" src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3625.427143317658!2d84.99642021499922!3d24.677839184140325!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x39f32c5b581fca2b%3A0x7ffce0110e9335bb!2sSambodhi%20Retreat!5e0!3m2!1sen!2sin!4v1605515197115!5m2!1sen!2sin" title="Map showing Sambodhi Retreat, Bodhgaya" loading="lazy" referrerpolicy="no-referrer-when-downgrade" allowfullscreen></iframe>
+    </div>
+
+    <div class="col-5" style="grid-column:span 5;" data-reveal="right">
+      <p class="eyebrow">Getting here</p>
+      <h2 class="h2 shead__title">Hathiyar, Bodhgaya.</h2>
+      <ul class="infolist" style="margin-top:1.8rem;">
+        <li><span class="k">Address</span><span class="v">Hathiyar, Bodhgaya, Gaya, Bihar — 824231, India</span></li>
+        <li><span class="k">Rail</span><span class="v">About 16.4 km from Gaya Junction — roughly 40 minutes via the Gaya–Bodhgaya Road.</span></li>
+        <li><span class="k">Air</span><span class="v">About 15.0 km from Gaya Airport.</span></li>
+        <li><span class="k">Phone</span><span class="v"><a href="tel:+917488535210">+91 74885 35210</a></span></li>
+        <li><span class="k">Email</span><span class="v"><a href="mailto:info@sambodhiretreat.com">info@sambodhiretreat.com</a></span></li>
+      </ul>
+      <div class="btn-row">
+        <a class="btn magnetic" href="contact.html">Contact &amp; directions
+          <svg class="btn__arrow" viewBox="0 0 15 9" fill="none" aria-hidden="true"><path d="M10 1l4 3.5L10 8M0 4.5h14" stroke="currentColor" stroke-width="1"/></svg>
+        </a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ========================= 11 · CLOSING CTA ========================= -->
+<section class="cta-close">
+  <div class="cta-close__bg">
+    <img src="https://www.sambodhiretreat.org/images/Homepage_Resort_INDEX/top-slider-img10.jpg" alt="" aria-hidden="true" loading="lazy" decoding="async">
+  </div>
+  <div class="cta-close__in">
+    <svg class="leaf leaf--lg" viewBox="0 0 40 58" fill="none" aria-hidden="true" style="margin-bottom:1.6rem;"><path d="M20 54C13 44 4 37 3.5 27 3 17 10 11 15 14c2.2 1.4 3.8 3.6 5 6 1.2-2.4 2.8-4.6 5-6 5-3 12 3 11.5 13-.5 10-9.5 17-16.5 27Z" stroke="currentColor" stroke-width="1.05"/><path d="M20 4v50" stroke="currentColor" stroke-width="1.05"/></svg>
+    <p class="eyebrow eyebrow--center" style="justify-content:center;">Reservations</p>
+    <h2 class="cta-close__title" data-reveal="up">Your escape begins here.</h2>
+    <p class="lede" style="margin:1.5rem auto 0;max-width:44ch;" data-reveal="up" data-reveal-delay="120">Rooms from ₹3,000 per night. Discover Sambodhi Retreat.</p>
+    <div class="btn-row btn-row--center" data-reveal="up" data-reveal-delay="220">
+      <a class="btn btn--gold magnetic" href="https://live.ipms247.com/booking/book-rooms-sambodhiretreat" target="_blank" rel="noopener">Book your stay</a>
+      <a class="btn btn--light magnetic" href="contact.html">Make an enquiry</a>
+    </div>
+  </div>
+</section>
+
+</main>
+
+<!-- ============================ FOOTER ============================ -->
+<footer class="ftr">
+  <div class="wrap">
+    <div class="ftr__top">
+      <div>
+        <p class="ftr__brand">Sambodhi Retreat</p>
+        <p style="font-size:.9rem;max-width:34ch;">Hathiyar, Bodhgaya, Gaya, Bihar — 824231, India</p>
+        <div class="ftr__social">
+          <a href="https://www.facebook.com/SambodhiRetreatBodhgaya/" target="_blank" rel="noopener" aria-label="Facebook"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M13.5 21v-8h2.7l.4-3.1h-3.1V7.9c0-.9.25-1.5 1.55-1.5H16.7V3.6c-.29-.04-1.3-.13-2.47-.13-2.45 0-4.13 1.5-4.13 4.24V9.9H7.4V13h2.7v8h3.4z"/></svg></a>
+          <a href="https://www.instagram.com/sambodhiretreat/" target="_blank" rel="noopener" aria-label="Instagram"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.2" cy="6.8" r="1" fill="currentColor" stroke="none"/></svg></a>
+          <a href="https://twitter.com/sambodhiretreat" target="_blank" rel="noopener" aria-label="X"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M17.5 3h3l-6.6 7.5L21.7 21h-5.9l-4.3-5.6L6.4 21H3.4l7-8L2.6 3h6l3.9 5.2L17.5 3zm-1.05 16.2h1.65L7.6 4.7H5.85l10.6 14.5z"/></svg></a>
+          <a href="https://www.linkedin.com/company/sambodhi-retreat/" target="_blank" rel="noopener" aria-label="LinkedIn"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M6.94 8.5H4.1V20h2.84V8.5zM5.52 4a1.65 1.65 0 100 3.3 1.65 1.65 0 000-3.3zM20 13.7c0-3.1-1.66-4.55-3.87-4.55-1.79 0-2.59.98-3.03 1.67V8.5H10.3V20h2.83v-6.4c0-.34.02-.68.13-.92.28-.67.9-1.37 1.94-1.37 1.37 0 1.92 1.04 1.92 2.57V20H20v-6.3z"/></svg></a>
+        </div>
+      </div>
+
+      <div>
+        <h4>Explore</h4>
+        <ul class="ftr__list">
+          <li><a href="accommodations.html">Accommodations</a></li>
+          <li><a href="dining.html">Dining</a></li>
+          <li><a href="gallery.html">Gallery</a></li>
+          <li><a href="blog.html">Blog</a></li>
+        </ul>
+      </div>
+
+      <div>
+        <h4>Gatherings</h4>
+        <ul class="ftr__list">
+          <li><a href="banquet-halls.html">Banquet halls</a></li>
+          <li><a href="event-venue.html">Event venue</a></li>
+          <li><a href="contact.html">Contact</a></li>
+          <li><a href="https://live.ipms247.com/booking/book-rooms-sambodhiretreat" target="_blank" rel="noopener">Book now</a></li>
+        </ul>
+      </div>
+
+      <div>
+        <h4>Reservations</h4>
+        <ul class="ftr__list">
+          <li><a href="tel:+917488535210">+91 74885 35210</a></li>
+          <li><a href="tel:+917488535208">+91 74885 35208</a></li>
+          <li><a href="mailto:info@sambodhiretreat.com">info@sambodhiretreat.com</a></li>
+        </ul>
+        <p style="font-size:.82rem;margin-top:1.1rem;">Also at Jealgora, Govindpur Uttrayan NH-2, Dhanbad, Jharkhand — 828109</p>
+      </div>
+    </div>
+
+    <div class="ftr__bottom">
+      <p>© <span data-year>2026</span> Sambodhi Retreat. All rights reserved.</p>
+      <nav aria-label="Legal">
+        <a href="https://www.sambodhiretreat.org/privacypolicy.aspx" target="_blank" rel="noopener">Privacy policy</a>
+        <a href="https://www.sambodhiretreat.org/termsandconditions.aspx" target="_blank" rel="noopener">Terms &amp; conditions</a>
+      </nav>
+    </div>
+  </div>
+</footer>
+
+<script src="assets/js/images.js"></script>
+<script src="assets/js/site.js"></script>
+</body>
+</html>
