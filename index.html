@@ -136,8 +136,8 @@
 
 <!-- Our Story — two alternating editorial compositions. Row 1 reads copy left
      / picture right; row 2 mirrors it. The oversized outlined word in each row
-     is decoration on its own layer BEHIND the photograph (site.css 29), so the
-     picture crops its lower third and its tail. -->
+     is decoration on its own layer ABOVE the photograph (site.css 29), so the
+     letters run across the top of the picture rather than being cropped. -->
 <section class="section on-white estory">
   <span class="wm wm--sprig wm--tr" aria-hidden="true"></span>
 
@@ -471,12 +471,51 @@
 </section>
 
 
+<!-- Wedding Experience. Three photographs and one copy panel in an asymmetric
+     12-column grid — never four equal cards. Each block carries its own reveal
+     direction so the composition assembles from both sides as it arrives.
+     Styles: site.css section 32. -->
+<section class="section on-white wedg" id="weddings">
+  <span class="wm wm--mandala wm--tr" aria-hidden="true"></span><span class="wm wm--sprig wm--bl" aria-hidden="true"></span>
+  <div class="curve curve--top" style="--c:var(--ivory)" aria-hidden="true"><svg viewBox="0 0 1440 150" preserveAspectRatio="none"><path d="M0,150 H1440 V44 C1120,146 320,146 0,44 Z"/></svg></div>
+
+  <div class="wrap wedg__intro">
+    <p class="label label--center" data-reveal="up">Weddings &amp; Celebrations</p>
+    <h2 class="dhead center wedg__head" data-reveal="up" data-reveal-delay="80"><b>Celebrate Your</b><b><em>Special Moments</em></b></h2>
+  </div>
+
+  <div class="wrap wedg__grid">
+      <figure class="wedg__shot wedg__a" data-reveal="wed-l">
+        <img src="https://www.sambodhiretreat.org/images/Gallery/Make-Wedding-Special-at-Sambodhi-Retreat.jpg" alt="Wedding ceremony on the lawns at Sambodhi Retreat" loading="lazy" decoding="async">
+      </figure>
+      <figure class="wedg__shot wedg__b" data-reveal="wed-r">
+        <img src="https://www.sambodhiretreat.org/images/gallery/7.jpg" alt="Reception set for a celebration at Sambodhi Retreat" loading="lazy" decoding="async">
+      </figure>
+      <figure class="wedg__shot wedg__d" data-reveal="wed-l">
+        <img src="https://www.sambodhiretreat.org/images/Gallery/top-post-img2.jpg" alt="An intimate celebration dinner at Sambodhi Retreat" loading="lazy" decoding="async">
+      </figure>
+
+    <div class="wedg__panel wedg__c" data-reveal="wed-r" data-reveal-delay="120">
+      <p class="wedg__eyebrow">destination weddings</p>
+      <h3 class="wedg__title">A day the whole estate turns out for</h3>
+      <p class="wedg__text">Sixty rooms, open lawns, and fifty thousand square feet under a ceiling above fifty feet &mdash; Sambodhi Retreat can hold a guest list of five thousand or a table of twelve, in the landscape where the Buddha attained enlightenment.</p>
+      <ul class="wedg__list">
+          <li><b>Destination weddings</b><span>the lawns, the convention centre, and sixty rooms for your guests</span></li>
+          <li><b>Receptions &amp; sangeet</b><span>a ballroom sized for the whole list, and a soundproof hall alongside</span></li>
+          <li><b>Intimate celebrations</b><span>engagements, anniversaries and family gatherings at one long table</span></li>
+          <li><b>Planned around you</b><span>menus built with the chef, and a team that handles what nobody planned for</span></li>
+      </ul>
+      <a class="alink" href="event-venue.html">plan your celebration <svg viewBox="0 0 34 11" fill="none" aria-hidden="true"><path d="M27 1l6 4.5L27 10M0 5.5h32" stroke="currentColor" stroke-width="1.1"/></svg></a>
+    </div>
+  </div>
+</section>
+
+
 
 <!-- Stories from Sambodhi. Three featured posts from the resort's own journal;
      the full run stays on blog.html. Styles: site.css section 33. -->
 <section class="section on-white jrn" id="stories">
   <span class="wm wm--lotus wm--tl" aria-hidden="true"></span>
-  <div class="curve curve--top" style="--c:var(--ivory)" aria-hidden="true"><svg viewBox="0 0 1440 150" preserveAspectRatio="none"><path d="M0,150 H1440 V44 C1120,146 320,146 0,44 Z"/></svg></div>
   <div class="wrap">
     <div class="shead shead--center">
       <p class="label label--center" data-reveal="up">journal</p>
@@ -561,9 +600,9 @@
         </li>
       </ul>
 
-      <!--<figure class="pdg__map" data-reveal="scale" data-reveal-delay="120">
+      <figure class="pdg__map" data-reveal="scale" data-reveal-delay="120">
         <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3625.427143317658!2d84.99642021499922!3d24.677839184140325!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x39f32c5b581fca2b%3A0x7ffce0110e9335bb!2sSambodhi%20Retreat!5e0!3m2!1sen!2sin!4v1605515197115!5m2!1sen!2sin" title="Map showing Sambodhi Retreat, Hathiyar, Bodhgaya" loading="lazy" referrerpolicy="no-referrer-when-downgrade" allowfullscreen></iframe>
-      </figure>-->
+      </figure>
     </div>
 
     <aside class="pdg__card" data-reveal="right" data-reveal-delay="140">

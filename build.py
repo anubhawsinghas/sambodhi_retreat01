@@ -311,6 +311,11 @@ def cta_band(img, line1, line2):
 </section>
 """
 
+# The v8 brief lists "Celebrate Your Special Moments" for removal, but its own
+# preserve list says to keep the "Wedding Experience section". They are the same
+# section — v7 renamed it. Set this to True and rebuild to remove it.
+REMOVE_WEDDING = False
+
 # ======================================================================= DATA
 ROOMS = [
  dict(id="green-cave", name="Green Cave Cottages", price="&#8377;7,000", type="cottage",
@@ -649,6 +654,67 @@ def amenities_stage():
 """
 
 
+# ==================================================== WEDDING EXPERIENCE
+# Asymmetric editorial composition: three photographs and one copy panel in a
+# 12-column grid, deliberately unequal so it never reads as a card row. On
+# desktop the tall portrait anchors the left, a wide landscape sits top-right,
+# the copy panel drops beneath it, and a square tucks into the remaining well.
+#   (key, alt, image, grid area class, reveal direction)
+WED_SHOTS = [
+ ("tall",  "Wedding ceremony on the lawns at Sambodhi Retreat",
+  "Gallery/Make-Wedding-Special-at-Sambodhi-Retreat.jpg", "wedg__a", "wed-l"),
+ ("wide",  "Reception set for a celebration at Sambodhi Retreat",
+  "gallery/7.jpg", "wedg__b", "wed-r"),
+ ("square","An intimate celebration dinner at Sambodhi Retreat",
+  "Gallery/top-post-img2.jpg", "wedg__d", "wed-l"),
+]
+
+WED_POINTS = [
+ ("Destination weddings", "the lawns, the convention centre, and sixty rooms for your guests"),
+ ("Receptions &amp; sangeet", "a ballroom sized for the whole list, and a soundproof hall alongside"),
+ ("Intimate celebrations", "engagements, anniversaries and family gatherings at one long table"),
+ ("Planned around you", "menus built with the chef, and a team that handles what nobody planned for"),
+]
+
+
+def wedding_section():
+    shots = "".join(f"""
+      <figure class="wedg__shot {cls}" data-reveal="{rev}">
+        <img src="{IMG}{img}" alt="{alt}" loading="lazy" decoding="async">
+      </figure>""" for key, alt, img, cls, rev in WED_SHOTS)
+
+    points = "".join(f"""
+          <li><b>{t}</b><span>{d}</span></li>""" for t, d in WED_POINTS)
+
+    return f"""
+<!-- Wedding Experience. Three photographs and one copy panel in an asymmetric
+     12-column grid — never four equal cards. Each block carries its own reveal
+     direction so the composition assembles from both sides as it arrives.
+     Styles: site.css section 32. -->
+<section class="section on-white wedg" id="weddings">
+  {wm('tr','mandala')}{wm('bl','sprig')}
+  {curve('arc','var(--ivory)','top')}
+
+  <div class="wrap wedg__intro">
+    <p class="label label--center" data-reveal="up">Weddings &amp; Celebrations</p>
+    <h2 class="dhead center wedg__head" data-reveal="up" data-reveal-delay="80"><b>Celebrate Your</b><b><em>Special Moments</em></b></h2>
+  </div>
+
+  <div class="wrap wedg__grid">{shots}
+
+    <div class="wedg__panel wedg__c" data-reveal="wed-r" data-reveal-delay="120">
+      <p class="wedg__eyebrow">destination weddings</p>
+      <h3 class="wedg__title">A day the whole estate turns out for</h3>
+      <p class="wedg__text">Sixty rooms, open lawns, and fifty thousand square feet under a ceiling above fifty feet &mdash; Sambodhi Retreat can hold a guest list of five thousand or a table of twelve, in the landscape where the Buddha attained enlightenment.</p>
+      <ul class="wedg__list">{points}
+      </ul>
+      <a class="alink" href="event-venue.html">plan your celebration {ARROW_L}</a>
+    </div>
+  </div>
+</section>
+"""
+
+
 # ================================================ STORIES FROM SAMBODHI
 # Three featured cards drawn from the resort's own journal. Category, title,
 # excerpt, arrow. Categories are assigned here rather than invented per card so
@@ -693,7 +759,6 @@ def blog_section():
      the full run stays on blog.html. Styles: site.css section 33. -->
 <section class="section on-white jrn" id="stories">
   {wm('tl','lotus')}
-  {curve('arc','var(--ivory)','top')}
   <div class="wrap">
     <div class="shead shead--center">
       <p class="label label--center" data-reveal="up">journal</p>
@@ -877,8 +942,8 @@ def home_body():
 
 <!-- Our Story — two alternating editorial compositions. Row 1 reads copy left
      / picture right; row 2 mirrors it. The oversized outlined word in each row
-     is decoration on its own layer BEHIND the photograph (site.css 29), so the
-     picture crops its lower third and its tail. -->
+     is decoration on its own layer ABOVE the photograph (site.css 29), so the
+     letters run across the top of the picture rather than being cropped. -->
 <section class="section on-white estory">
   {wm('tr','sprig')}
 
@@ -975,6 +1040,7 @@ def home_body():
   </div>
 </section>
 
+{wedding_section() if not REMOVE_WEDDING else ''}
 
 {blog_section()}
 {pickup_contact()}

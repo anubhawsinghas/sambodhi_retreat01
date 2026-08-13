@@ -683,16 +683,22 @@ body.is-locked{ overflow:hidden; }
 }
 .is-loaded .hero__center .outline{ opacity:1; transform:none; }
 .is-loaded .hero__tag{ opacity:1; transform:none; }
-.hero__map{ display:inline-flex; align-items:center; gap:.5rem; margin-top:1.2rem;
+.hero__map{ display:inline-flex; align-items:center; gap:.5rem;
+  /* fluid rather than a flat 1.2rem: on a short window the stack tightens
+     itself instead of the link having to stand down entirely */
+  margin-top:clamp(.65rem,2.2vh,1.2rem);
   font-size:.72rem; letter-spacing:.2em; text-transform:lowercase; color:#fff;
   padding-bottom:.3rem; border-bottom:1px solid rgba(255,255,255,.5); }
 .hero__map:hover{ color:var(--sage); border-color:var(--sage); }
 .hero__map svg{ width:11px; height:14px; }
-/* On a short window the hero stack and the bottom-pinned scroll cue both want
-   the same band; the map link is the least important of the two, so it stands
-   down rather than overlapping. Delete this block to keep it at every height,
-   or delete the .hero__map line in build.py to drop it everywhere.          */
-@media (max-height:880px){ .hero__map{ display:none; } }
+/* The hero stack and the bottom-pinned scroll cue compete for the same band
+   on short windows. This used to hide the link below 880px tall, which took
+   it off every phone in portrait (a 390x844 handset is 844). The stack in
+   fact clears the cue comfortably down to ~620px; only landscape phones and
+   similarly letterboxed windows genuinely run out of room, so the cutoff now
+   sits there. Delete this block to keep it at every height, or delete the
+   .hero__map line in build.py to drop it everywhere.                        */
+@media (max-height:620px){ .hero__map{ display:none; } }
 
 /* scroll cue */
 .hero__scroll{
@@ -758,6 +764,13 @@ html.js [data-reveal="clip-l"]{ clip-path:inset(0 100% 0 0); }
 html.js [data-reveal="clip-r"]{ clip-path:inset(0 0 0 100%); }
 html.js [data-reveal="clip-u"]{ clip-path:inset(100% 0 0 0); }
 html.js [data-reveal="clip-d"]{ clip-path:inset(0 0 100% 0); }
+/* Wedding Experience entrances. Same observer, same settle rule; only the
+   starting pose differs — a longer horizontal push plus a slight scale, at
+   the 820/950ms the brief asks for rather than the site default. */
+html.js [data-reveal="wed-l"], html.js [data-reveal="wed-r"]{
+  transition:opacity .82s var(--e-out), transform .95s var(--e-out);
+  transition-delay:var(--d,0s);
+}
 /* Photo gallery tiles. Direction alternates strictly left/right down the
    source order; the shared observer fires each tile once and unobserves. */
 html.js [data-reveal="gal-l"], html.js [data-reveal="gal-r"]{
@@ -766,6 +779,9 @@ html.js [data-reveal="gal-l"], html.js [data-reveal="gal-r"]{
 }
 html.js [data-reveal="gal-l"]{ opacity:0; transform:translate3d(-46px,0,0) scale(.955); }
 html.js [data-reveal="gal-r"]{ opacity:0; transform:translate3d(46px,0,0)  scale(.955); }
+
+html.js [data-reveal="wed-l"]{ opacity:0; transform:translate3d(-7vw,0,0) scale(.966); }
+html.js [data-reveal="wed-r"]{ opacity:0; transform:translate3d(7vw,0,0)  scale(.966); }
 
 /* Only the curtain reveals may touch clip-path on settle — resetting it for
    every reveal type would silently erase the organic wave masks on photos. */
@@ -866,11 +882,7 @@ html.js [data-reveal^="clip-"].is-in{ clip-path:inset(0 0 0 0); }
   .carousel__arrows{ top:auto; bottom:0; transform:none;
     margin-bottom:calc(clamp(1.5rem,3vw,2.4rem) + 8px - 23px); }
 }
-/* position:static drops the offsets but NOT the transform, which kept
-   pulling the arrows a full height upward onto the slide's links row.
-   Pre-existing; caught in the top-to-bottom pass. */
-@media (max-width:900px){ .carousel__arrows{ position:static; transform:none;
-  margin-top:1.1rem; justify-content:flex-start; } }
+@media (max-width:900px){ .carousel__arrows{ position:static; margin-top:1.1rem; justify-content:flex-start; } }
 .carousel__nav{ width:46px; height:46px; border-radius:50%;
   background:rgba(255,255,255,.9); color:var(--green); display:grid; place-items:center;
   box-shadow:0 6px 18px -8px rgba(23,45,32,.5);
@@ -1280,9 +1292,10 @@ html:not(.js) .hero--reveal .hero__center,
 /* Two alternating compositions: copy one side, a tall photograph the other,
    and an oversized outlined word straddling the top edge of the picture.
 
-   The word is a decoration, not a heading — it sits on its own layer BELOW
-   the photograph and BELOW the copy, so the image crops its lower third and
-   its tail. Nothing readable is ever underneath it. */
+   The word is a decoration, not a heading — but it sits on its own layer
+   ABOVE the photograph, so the letters run across the top of the picture
+   instead of being cropped by it. The row still reserves a full word-height
+   of padding at the top, so the word never lands on the copy. */
 
 .estory{
   --eword-fs: clamp(2.9rem, 12.4vw, 11rem);
@@ -1336,10 +1349,13 @@ html:not(.js) .hero--reveal .hero__center,
   aspect-ratio: 4/5;
 }
 
-/* The word. Anchored to the outer edge so it runs inward and the picture
-   takes its tail; `nowrap` keeps it one line at every size. */
+/* The word. Anchored to the outer edge so it runs inward and crosses the top
+   of the picture; `nowrap` keeps it one line at every size.
+
+   z-index 4 puts it over the photograph (2) and the copy (3). It stays
+   pointer-events:none, so it never intercepts a click on either. */
 .estory__word{
-  position: absolute; z-index: 1; top: 0;
+  position: absolute; z-index: 4; top: 0;
   line-height: .72; white-space: nowrap;
   pointer-events: none; user-select: none;
 }
@@ -1348,6 +1364,13 @@ html:not(.js) .hero--reveal .hero__center,
 .estory__word .outline{
   font-size: var(--eword-fs);
   text-transform: uppercase; letter-spacing: .045em; display: block;
+}
+/* Now that the letters cross the photograph, a bare ink hairline disappears
+   into the darker parts of the image. drop-shadow traces the stroke itself
+   (text-shadow would fill the glyph and turn it into a blob), giving a
+   whisker of separation over the picture and reading as nothing on cream. */
+.estory__word .outline--ink{
+  filter: drop-shadow(0 0 1.5px rgba(255,255,255,.6));
 }
 
 /* Outlined type on cream. The hero's .outline is a white hairline with a dark
@@ -1804,13 +1827,82 @@ html:not(.js) .amenx__cap > *{ opacity:1; transform:none; }
 html:not(.js) .amenx__cap:not(.is-active){ display:none; }
 
 
+/* ---------- 32. WEDDING EXPERIENCE — ASYMMETRIC COMPOSITION -------------
+   Three photographs and one copy panel in a 12-column grid. The areas are
+   deliberately unequal — a tall portrait anchoring the left across both rows,
+   a wide landscape along the top right, the copy panel beneath it and a square
+   tucked into the remaining well — so it can never settle into a card row.
+   Each block declares its own reveal direction, so the composition assembles
+   from both sides as it arrives. */
+.wedg{ background:var(--ivory); }
+.wedg__intro{ text-align:center; margin-bottom:clamp(2.4rem,5.5vw,4rem); }
+.wedg__head{ margin-inline:auto; }
+
+.wedg__grid{
+  display:grid; grid-template-columns:repeat(12,1fr);
+  grid-template-rows:clamp(230px,26vw,390px) auto;
+  gap:clamp(.85rem,1.7vw,1.6rem);
+}
+.wedg__a{ grid-column:1/6;   grid-row:1/3; }   /* tall portrait, left  */
+.wedg__b{ grid-column:6/13;  grid-row:1/2; }   /* wide landscape, top  */
+.wedg__c{ grid-column:6/10;  grid-row:2/3; }   /* copy panel           */
+.wedg__d{ grid-column:10/13; grid-row:2/3; }   /* square, tucked right */
+
+.wedg__shot{
+  position:relative; margin:0; overflow:hidden; border-radius:var(--radius);
+  background:linear-gradient(140deg,var(--green-3),var(--green));
+}
+.wedg__shot img{ width:100%; height:100%; object-fit:cover; object-position:center;
+  transition:transform 1.5s var(--e-out); }
+@media (hover:hover){ .wedg__shot:hover img{ transform:scale(1.045); } }
+
+/* The copy panel is the one dark element in an ivory band, which is what makes
+   the composition read as editorial rather than as a gallery of four. */
+.wedg__panel{
+  display:flex; flex-direction:column; justify-content:center;
+  padding:clamp(1.5rem,2.5vw,2.6rem);
+  border-radius:var(--radius); background:var(--green); color:#fff;
+}
+.wedg__eyebrow{
+  margin:0 0 .9rem; font-size:.66rem; font-weight:500;
+  letter-spacing:.28em; text-transform:uppercase; color:var(--gold-2);
+}
+.wedg__title{
+  margin:0 0 .9rem; font-family:var(--f-display); font-weight:400;
+  font-size:clamp(1.5rem,2.5vw,2.1rem); line-height:1.14; color:var(--sage);
+}
+.wedg__text{ margin:0 0 1.4rem; font-size:.93rem; line-height:1.75; color:var(--muted-d); }
+.wedg__list{ list-style:none; margin:0 0 1.5rem; padding:0; }
+.wedg__list li{
+  position:relative; padding:.62rem 0 .62rem 1.4rem;
+  border-top:1px solid var(--line-d); font-size:.84rem; line-height:1.5;
+}
+.wedg__list li:first-child{ border-top:0; }
+.wedg__list li::before{
+  content:''; position:absolute; left:0; top:1.12rem;
+  width:6px; height:6px; border:1px solid var(--gold-2); transform:rotate(45deg);
+}
+.wedg__list b{ display:block; font-weight:500; color:var(--sage); letter-spacing:.01em; }
+.wedg__list span{ color:rgba(250,249,245,.62); }
+.wedg__panel .alink{ color:#fff; align-self:flex-start; }
+
+@media (max-width:1000px){
+  .wedg__grid{ grid-template-rows:clamp(190px,29vw,300px) auto; }
+  .wedg__a{ grid-column:1/7;   grid-row:1/2; }
+  .wedg__b{ grid-column:7/13;  grid-row:1/2; }
+  .wedg__c{ grid-column:1/9;   grid-row:2/3; }
+  .wedg__d{ grid-column:9/13;  grid-row:2/3; }
+}
+@media (max-width:700px){
+  /* Stacked, an asymmetric grid just reads as an inconsistent one. */
+  .wedg__grid{ grid-template-columns:1fr; grid-template-rows:none; }
+  .wedg__a,.wedg__b,.wedg__c,.wedg__d{ grid-column:1/-1; grid-row:auto; }
+  .wedg__shot{ aspect-ratio:3/2; }
+  .wedg__c{ order:-1; }        /* lead with the words on a narrow screen */
+}
+
+
 /* ---------- 33. STORIES FROM SAMBODHI ----------------------------------- */
-/* Ivory, a half-step lighter than the cream band before it. Removing the
-   wedding section left Accommodation and Stories both on cream with nothing
-   between them — 240px of flat, undifferentiated ground. This is the exact
-   treatment the removed section carried (ivory surface + arc), so the page
-   keeps its rhythm without introducing any new design language. */
-.jrn{ background:var(--ivory); }
 .jrn__head{ margin-inline:auto; }
 .jrn__grid{ display:grid; grid-template-columns:repeat(3,1fr); gap:clamp(1.2rem,2.4vw,2.2rem); }
 @media (max-width:900px){ .jrn__grid{ grid-template-columns:repeat(2,1fr); } }
