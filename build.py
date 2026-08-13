@@ -196,44 +196,61 @@ HEAD = """<!DOCTYPE html>
 FOOT = """
 </main>
 
-<footer class="ftr">
-  <span class="wm wm--bl" aria-hidden="true"></span>
+<!-- Footer. A dark botanical ground with a single large ivory panel lifted off
+     it — the brand mark and socials left, two navigation columns, the
+     newsletter right, and a hairline bar beneath. Every link, number and
+     address carried over from the previous footer unchanged.
+     Styles: site.css section 36. -->
+<footer class="ftr ftr--panel">
+  <span class="wm wm--leafbig wm--bl" aria-hidden="true"></span>
+  <span class="wm wm--branch wm--tr" aria-hidden="true"></span>
+
   <div class="wrap">
-    <div class="ftr__grid">
-      <div class="ftr__brandcol">
-        <p class="ftr__mark"><img src="assets/img/logo.png" alt="Sambodhi Retreat"></p>
-        <div class="ftr__social">
-          <a href="https://www.instagram.com/sambodhiretreat/" target="_blank" rel="noopener" aria-label="Instagram"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.2" cy="6.8" r="1" fill="currentColor" stroke="none"/></svg></a>
-          <a href="https://www.facebook.com/SambodhiRetreatBodhgaya/" target="_blank" rel="noopener" aria-label="Facebook"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M13.5 21v-8h2.7l.4-3.1h-3.1V7.9c0-.9.25-1.5 1.55-1.5H16.7V3.6c-.29-.04-1.3-.13-2.47-.13-2.45 0-4.13 1.5-4.13 4.24V9.9H7.4V13h2.7v8h3.4z"/></svg></a>
-          <a href="https://twitter.com/sambodhiretreat" target="_blank" rel="noopener" aria-label="X"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M17.5 3h3l-6.6 7.5L21.7 21h-5.9l-4.3-5.6L6.4 21H3.4l7-8L2.6 3h6l3.9 5.2L17.5 3zm-1.05 16.2h1.65L7.6 4.7H5.85l10.6 14.5z"/></svg></a>
-          <a href="https://www.linkedin.com/company/sambodhi-retreat/" target="_blank" rel="noopener" aria-label="LinkedIn"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M6.94 8.5H4.1V20h2.84V8.5zM5.52 4a1.65 1.65 0 100 3.3 1.65 1.65 0 000-3.3zM20 13.7c0-3.1-1.66-4.55-3.87-4.55-1.79 0-2.59.98-3.03 1.67V8.5H10.3V20h2.83v-6.4c0-.34.02-.68.13-.92.28-.67.9-1.37 1.94-1.37 1.37 0 1.92 1.04 1.92 2.57V20H20v-6.3z"/></svg></a>
+    <div class="ftr__panel">
+      <div class="ftr__grid">
+        <div class="ftr__brandcol">
+          <p class="ftr__mark"><img src="assets/img/logo.png" alt="Sambodhi Retreat"></p>
+          <p class="ftr__blurb">Hathiyar, Bodhgaya, Gaya, Bihar &mdash; 824231, India</p>
+          <p class="ftr__blurb"><a href="tel:+917488535210">+91 74885 35210</a> &middot; <a href="tel:+917488535208">+91 74885 35208</a><br><a href="mailto:info@sambodhiretreat.com">info@sambodhiretreat.com</a></p>
+          <div class="ftr__social">
+            <a href="https://www.instagram.com/sambodhiretreat/" target="_blank" rel="noopener" aria-label="Instagram"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.2" cy="6.8" r="1" fill="currentColor" stroke="none"/></svg></a>
+            <a href="https://www.facebook.com/SambodhiRetreatBodhgaya/" target="_blank" rel="noopener" aria-label="Facebook"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M13.5 21v-8h2.7l.4-3.1h-3.1V7.9c0-.9.25-1.5 1.55-1.5H16.7V3.6c-.29-.04-1.3-.13-2.47-.13-2.45 0-4.13 1.5-4.13 4.24V9.9H7.4V13h2.7v8h3.4z"/></svg></a>
+            <a href="https://twitter.com/sambodhiretreat" target="_blank" rel="noopener" aria-label="X"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M17.5 3h3l-6.6 7.5L21.7 21h-5.9l-4.3-5.6L6.4 21H3.4l7-8L2.6 3h6l3.9 5.2L17.5 3zm-1.05 16.2h1.65L7.6 4.7H5.85l10.6 14.5z"/></svg></a>
+            <a href="https://www.linkedin.com/company/sambodhi-retreat/" target="_blank" rel="noopener" aria-label="LinkedIn"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M6.94 8.5H4.1V20h2.84V8.5zM5.52 4a1.65 1.65 0 100 3.3 1.65 1.65 0 000-3.3zM20 13.7c0-3.1-1.66-4.55-3.87-4.55-1.79 0-2.59.98-3.03 1.67V8.5H10.3V20h2.83v-6.4c0-.34.02-.68.13-.92.28-.67.9-1.37 1.94-1.37 1.37 0 1.92 1.04 1.92 2.57V20H20v-6.3z"/></svg></a>
+          </div>
         </div>
-      </div>
 
-      <nav class="ftr__col" aria-label="Footer">
-        {FOOTNAV}
-      </nav>
+        <nav class="ftr__col" aria-label="Footer">
+          <h4 class="ftr__ch">Explore</h4>
+          {FOOTNAV}
+        </nav>
 
-      <div>
-        <nav class="ftr__col" aria-label="Legal">
+        <nav class="ftr__col" aria-label="Policies">
+          <h4 class="ftr__ch">Policies</h4>
           <a href="https://www.sambodhiretreat.org/privacypolicy.aspx" target="_blank" rel="noopener">Privacy &amp; Policy</a>
           <a href="https://www.sambodhiretreat.org/termsandconditions.aspx" target="_blank" rel="noopener">Terms &amp; Conditions</a>
+          <a href="contact.html">Cancellation &amp; Refunds</a>
           <a href="{BOOK}" target="_blank" rel="noopener">Book a Stay</a>
         </nav>
-        <div class="news">
-          <h4>Subscribe to the Newsletter</h4>
-          <p>Stay updated with resort news</p>
-          <form class="news__row" id="newsletter" novalidate>
-            <input type="email" name="email" aria-label="Email address" placeholder="@ your email address" required>
-            <button type="submit">send</button>
-          </form>
-          <label class="news__consent"><input type="checkbox" required> I have read and accept the Privacy Policy</label>
+
+        <div class="ftr__newscol">
+          <div class="news">
+            <h4>Subscribe to the Newsletter</h4>
+            <p>Stay updated with Sambodhi Retreat news</p>
+            <form class="news__row" id="newsletter" novalidate>
+              <input type="email" name="email" id="news-email" aria-label="Email address" placeholder="Enter your email address" required>
+              <button type="submit">send</button>
+            </form>
+            <label class="news__consent"><input type="checkbox" id="news-consent" required> I have read and accept the <a href="https://www.sambodhiretreat.org/privacypolicy.aspx" target="_blank" rel="noopener">Privacy Policy</a></label>
+            <p class="news__note" role="status" aria-live="polite"></p>
+          </div>
         </div>
       </div>
-    </div>
 
-    <div class="ftr__bottom">
-      <p>Copyright &copy; <span data-year>2026</span>, Sambodhi Retreat | All rights reserved | Hathiyar, Bodhgaya, Gaya, Bihar &mdash; 824231 | <a href="tel:+917488535210">+91 74885 35210</a> &middot; <a href="tel:+917488535208">+91 74885 35208</a> &middot; <a href="mailto:info@sambodhiretreat.com">info@sambodhiretreat.com</a> | Also at Jealgora, Govindpur Uttrayan NH-2, Dhanbad, Jharkhand &mdash; 828109</p>
+      <div class="ftr__bottom">
+        <p>Copyright &copy; <span data-year>2026</span>, Sambodhi Retreat | All Rights Reserved</p>
+        <p class="ftr__alt">Also at Jealgora, Govindpur Uttrayan NH-2, Dhanbad, Jharkhand &mdash; 828109</p>
+      </div>
     </div>
   </div>
 </footer>
@@ -346,13 +363,6 @@ ROOM_AMENITIES = ["King-sized bed with blanket","Wardrobe and closet inside the 
  "Complimentary mineral water","Eco-friendly premium toiletries",
  "Tea and coffee maker with milk, sugar and tea","Bathrobe and bath slippers",
  "24-hour room service","Laundry and dry-cleaning service"]
-
-MARQUEE = ["swimming pool","splash pool","village trails","organic food","fine dining",
- "racquetball","tennis","cricket","volleyball","planned excursions","rain dance with dj",
- "painting","horse riding","table tennis","convention centre","conference hall",
- "24-hour room service","laundry &amp; dry cleaning","tea &amp; coffee maker","eco-friendly toiletries"]
-
-
 
 
 ICONS = {
@@ -468,6 +478,8 @@ def carousel(dark=True):
       <div class="carousel__dots">{dots}</div>
     </div>"""
 
+# Retired at v6: the five-card grid became the bordered rail inside
+# amenities_stage(). Kept because accommodations/event pages may want it back.
 def amenity_grid():
     items = "".join(f"""
         <article class="amen__item" data-reveal="up">
@@ -477,11 +489,356 @@ def amenity_grid():
         </article>""" for k,label,desc in AMENITIES)
     return f'<div class="amen" data-stagger="90">{items}\n      </div>'
 
-def marquee_block():
-    items = "".join(f'<span class="marquee__item"><i class="marquee__n">{i+1:02d}</i>'
-                    f'<b class="marquee__t">{t}</b></span>' for i,t in enumerate(MARQUEE))
-    return (f'<div class="marquee" aria-label="Amenities and activities at Sambodhi Retreat">'
-            f'<div class="marquee__track">{items}</div></div>')
+# ================================================== DISCOVER OUR AMENITIES
+# A cinematic, self-driving amenity slider. The photograph is the section; the
+# navigation is a rail of tall bordered cells ruled straight over it, so the
+# borders read as part of the composition rather than as a row of cards.
+#
+# Data shape, one tuple per slide — panel and slide are 1:1, so the rail IS the
+# slider state. Nothing here is invented: every line is drawn from copy already
+# published on the site.
+#   (key, rail label, rail sub-line, slide title, slide copy, image, href)
+AMENX_ICONS = {
+ "water": ('<path d="M16 4.4c4.4 5.4 6.7 9.2 6.7 12.4a6.7 6.7 0 1 1-13.4 0c0-3.2 2.3-7 6.7-12.4Z" '
+           'stroke="currentColor" stroke-width="1.1" stroke-linejoin="round"/>'
+           '<path d="M3 26.6c2.6 0 2.6-2.1 5.2-2.1s2.6 2.1 5.2 2.1 2.6-2.1 5.2-2.1 2.6 2.1 5.2 2.1 2.6-2.1 5.2-2.1" '
+           'stroke="currentColor" stroke-width="1.1" stroke-linecap="round"/>'),
+ "bed":   ('<path d="M4.4 26.5V11.5M27.6 26.5v-7.8" stroke="currentColor" stroke-width="1.1" stroke-linecap="round"/>'
+           '<path d="M4.4 18.7h23.2v6.1H4.4Z" stroke="currentColor" stroke-width="1.1" stroke-linejoin="round"/>'
+           '<path d="M8.6 18.7v-2.5a1.7 1.7 0 0 1 1.7-1.7h4.4a1.7 1.7 0 0 1 1.7 1.7v2.5" '
+           'stroke="currentColor" stroke-width="1.1" stroke-linejoin="round"/>'),
+ "trees": ('<path d="M11 27.4v-5.2M21.6 27.4v-4.2" stroke="currentColor" stroke-width="1.1" stroke-linecap="round"/>'
+           '<path d="M11 22.2H4.6L11 11.1l6.4 11.1H11Z" stroke="currentColor" stroke-width="1.1" stroke-linejoin="round"/>'
+           '<path d="M21.6 23.2h-6.1l6.1-8.8 6.1 8.8h-6.1Z" stroke="currentColor" stroke-width="1.1" stroke-linejoin="round"/>'
+           '<path d="M2.6 28.6h26.8" stroke="currentColor" stroke-width="1.1" stroke-linecap="round"/>'),
+ "dine":  ('<path d="M5 24.1a11 11 0 0 1 22 0Z" stroke="currentColor" stroke-width="1.1" stroke-linejoin="round"/>'
+           '<path d="M2.6 27h26.8M16 13.1v-2.3" stroke="currentColor" stroke-width="1.1" stroke-linecap="round"/>'
+           '<path d="M16 10.8a1.6 1.6 0 1 0 0-3.2 1.6 1.6 0 0 0 0 3.2Z" stroke="currentColor" stroke-width="1.1"/>'),
+ "event": ('<rect x="4.2" y="7.4" width="23.6" height="20.2" rx="2.2" stroke="currentColor" stroke-width="1.1"/>'
+           '<path d="M4.2 13.4h23.6M10.6 4.4v5.2M21.4 4.4v5.2" stroke="currentColor" stroke-width="1.1" stroke-linecap="round"/>'
+           '<path d="M16 24.2c-2.5-1.9-4.3-3.1-4.3-4.9a2.1 2.1 0 0 1 3.7-1.3 2.1 2.1 0 0 1 3.7 1.3c0 1.8-1.8 3-3.1 4.9Z" '
+           'stroke="currentColor" stroke-width="1.1" stroke-linejoin="round"/>'),
+}
+
+AMENX = [
+ ("water", "Wellness", "pool &amp; splash pools",
+  "Wellness &amp; Water",
+  "A swimming pool on one side of the grounds and the river Falgu on the other, with private splash pools at the igloo cottages &mdash; cold water, a cup of tea and warm snacks brought out to you.",
+  "Homepage_Resort_INDEX/top-slider-img11.jpg", "accommodations.html"),
+
+ ("bed", "Accommodation", "sixty rooms, seven forms",
+  "Luxury Accommodation",
+  "Grass-clad caves, igloos, timber cottages raised on stilts and a pyramid of reclaimed pine. Sixty rooms in all &mdash; twelve large suites and four family rooms, each built to hold its own temperature.",
+  "rooms-col1/sambodhi-retreat-bodhgaya-green-caves-1.jpg", "accommodations.html"),
+
+ ("trees", "Nature", "village trails &amp; excursions",
+  "Nature &amp; Trails",
+  "Village trails run out from the grounds into the country around Hathiyar, with planned excursions further afield. Racquetball, tennis, cricket and volleyball are all on the property.",
+  "gallery/9.jpg", "event-venue.html"),
+
+ ("dine", "Dining", "organic produce, one kitchen",
+  "Fine Dining",
+  "More than ten years of food and beverage experience sit behind this kitchen, in a room that stays professional without tipping into formality. Organic produce runs through the whole menu.",
+  "dining/restaurant1.jpg", "dining.html"),
+
+ ("event", "Experiences", "weddings &amp; celebrations",
+  "Events &amp; Celebrations",
+  "Fifty thousand square feet under a ceiling above fifty feet, seating up to 5,000 guests, with a fully soundproof conference hall for 100 to 400 alongside it.",
+  "promotions/1.jpg", "event-venue.html"),
+]
+
+# The rail's small "discover" chevron. Deliberately lighter than ARROW_S — it
+# marks the cell, it does not compete with the caption's link.
+AMENX_TICK = ('<svg viewBox="0 0 22 8" fill="none" aria-hidden="true">'
+              '<path d="M0 4h19M15.6 1 19 4l-3.4 3" stroke="currentColor" '
+              'stroke-width="1" stroke-linecap="round" stroke-linejoin="round"/></svg>')
+
+
+def amenx_slides():
+    """One background layer per amenity. Layer 0 eager, the rest lazy."""
+    out = []
+    for i, (k, lab, sub, title, copy, img, href) in enumerate(AMENX):
+        act = " is-active" if i == 0 else ""
+        eager = "eager" if i == 0 else "lazy"
+        out.append(
+          f'        <div class="amenx__slide{act}" data-i="{i}">'
+          f'<img src="{IMG}{img}" alt="{title} at Sambodhi Retreat" '
+          f'loading="{eager}" decoding="async"></div>')
+    return "\n".join(out)
+
+
+def amenx_caps():
+    """Captions stack in one grid cell, so the block is as tall as the longest."""
+    out = []
+    for i, (k, lab, sub, title, copy, img, href) in enumerate(AMENX):
+        act = " is-active" if i == 0 else ""
+        out.append(f"""        <div class="amenx__cap{act}" data-i="{i}" role="tabpanel"
+             id="amenx-panel-{i}" aria-labelledby="amenx-tab-{i}">
+          <p class="amenx__num"><b>{i+1:02d}</b><i></i><span>{len(AMENX):02d}</span></p>
+          <h3 class="amenx__title">{title}</h3>
+          <p class="amenx__text">{copy}</p>
+          <a class="alink amenx__go" href="{href}">discover {ARROW_L}</a>
+        </div>""")
+    return "\n".join(out)
+
+
+def amenx_cells():
+    """The rail. Each cell is the slider control for its own slide."""
+    out = []
+    for i, (k, lab, sub, title, copy, img, href) in enumerate(AMENX):
+        act = " is-active" if i == 0 else ""
+        out.append(f"""        <button class="amenx__cell{act}" type="button" role="tab"
+                id="amenx-tab-{i}" aria-controls="amenx-panel-{i}"
+                aria-selected="{'true' if i==0 else 'false'}" tabindex="{0 if i==0 else -1}" data-i="{i}">
+          <span class="amenx__prog" aria-hidden="true"></span>
+          <span class="amenx__ico" aria-hidden="true"><svg viewBox="0 0 32 32" fill="none">{AMENX_ICONS[k]}</svg></span>
+          <span class="amenx__cellbody">
+            <b class="amenx__name">{lab}</b>
+            <span class="amenx__sub">{sub}</span>
+          </span>
+          <span class="amenx__tick" aria-hidden="true">{AMENX_TICK}</span>
+        </button>""")
+    return "\n".join(out)
+
+
+def amenities_stage():
+    """Discover Our Amenities — intro on cream, then the cinematic stage.
+
+    The stage is a direct child of the section rather than of .wrap, so the
+    photograph runs the full width of the viewport while the introduction above
+    it keeps the editorial measure.
+    """
+    return f"""
+<!-- Discover Our Amenities. Two halves: a calm cream introduction, then a
+     full-bleed photographic stage whose rail of bordered cells IS the slider
+     navigation — panel N drives slide N, both ways. The organic wave at the
+     top of the stage is the cream band spilling over the photograph, so the
+     boundary between the two halves is a curve, never a rule.
+     Styles: site.css section 31. Behaviour: site.js module 18. -->
+<section class="section section--flush-bottom on-white amenx" id="amenities">
+  {wm('tl')}{wm('tr','sprig')}
+
+  <div class="wrap amenx__intro">
+    <p class="label label--center" data-reveal="up">Amenities &amp; Experiences</p>
+    <h2 class="dhead center amenx__head" data-reveal="up" data-reveal-delay="80"><b>Discover Luxury</b><b><em>Amenities</em></b></h2>
+    <p class="lede amenx__lede" data-reveal="up" data-reveal-delay="150">Five ways to spend a day here &mdash; water, rest, the country around us, the table, and the occasions worth gathering for. Choose one and the view changes with it.</p>
+    <p class="amenx__note" data-reveal="up" data-reveal-delay="200">Painting, horse riding and table tennis can be arranged at extra cost.</p>
+  </div>
+
+  <div class="amenx__stage" data-amenx data-amenx-interval="6400">
+    <div class="amenx__media" aria-hidden="true">
+{amenx_slides()}
+      <span class="amenx__scrim"></span>
+    </div>
+
+    <div class="amenx__wave" aria-hidden="true">
+      <svg viewBox="0 0 1440 150" preserveAspectRatio="none"><path d="M0,0 H1440 V44 C1120,146 320,146 0,44 Z"/></svg>
+    </div>
+
+    <div class="amenx__body">
+      <div class="amenx__caps" data-reveal="fade">
+{amenx_caps()}
+      </div>
+
+      <div class="amenx__cells" role="tablist" aria-label="Resort amenities">
+{amenx_cells()}
+      </div>
+    </div>
+  </div>
+</section>
+"""
+
+
+# ================================================ STORIES FROM SAMBODHI
+# Three featured cards drawn from the resort's own journal. Category, title,
+# excerpt, arrow. Categories are assigned here rather than invented per card so
+# the same post always files under the same heading across the site.
+FEATURED = [
+ ("Weddings", 0,
+  "How the best luxury resorts in Bodhgaya make wedding events special",
+  "Spiritual weight and open landscape both work in favour of a wedding held here. A look at how venue and service come together on the day.",
+  "Gallery/Make-Wedding-Special-at-Sambodhi-Retreat.jpg",
+  "https://www.sambodhiretreat.org/How-the-Best-Luxury-Resorts-in-Bodhgaya-Make-Wedding-Events-Special.aspx"),
+ ("Food", 1,
+  "Top 7 organic foods to relish in luxury resorts in Bodhgaya this spring",
+  "Spring is a season for revival and for eating well. Seven organic dishes worth ordering while you are here.",
+  "Gallery/Top-7-Organic-Foods-in-Sambodhi-Retreat.jpg",
+  "https://www.sambodhiretreat.org/Top-7-Organic-Foods-in-Sambodhi-Retreat.aspx"),
+ ("Bodhgaya", 2,
+  "Top 5 places to visit this spring in Bodh Gaya",
+  "The city where Gautama Buddha attained enlightenment draws millions each year. Five places worth starting with.",
+  "Gallery/Top-5-Places-in-Bodh-Gaya.jpg",
+  "https://www.sambodhiretreat.org/Top-5-Places-to-Visit-this-Spring-in-Bodh-Gaya.aspx"),
+]
+
+
+def blog_section():
+    cards = "".join(f"""
+      <article class="jrn__card" data-reveal="up">
+        <a class="jrn__link" href="{url}" target="_blank" rel="noopener">
+          <span class="jrn__media">
+            <img src="{IMG}{img}" alt="{title}" loading="lazy" decoding="async">
+            <span class="jrn__cat">{cat}</span>
+          </span>
+          <span class="jrn__body">
+            <h3 class="jrn__title">{title}</h3>
+            <span class="jrn__excerpt">{excerpt}</span>
+            <span class="jrn__more">read more {ARROW_S}</span>
+          </span>
+        </a>
+      </article>""" for cat, i, title, excerpt, img, url in FEATURED)
+
+    return f"""
+<!-- Stories from Sambodhi. Three featured posts from the resort's own journal;
+     the full run stays on blog.html. Styles: site.css section 33. -->
+<section class="section on-white jrn" id="stories">
+  {wm('tl','lotus')}
+  {curve('arc','var(--ivory)','top')}
+  <div class="wrap">
+    <div class="shead shead--center">
+      <p class="label label--center" data-reveal="up">journal</p>
+      <h2 class="dhead center jrn__head" data-reveal="up" data-reveal-delay="80"><b>Stories From</b><b><em>Sambodhi</em></b></h2>
+      <p class="lede shead__lede" data-reveal="up" data-reveal-delay="140">Weddings, food, the city around us, and the things guests ask before they arrive.</p>
+    </div>
+
+    <div class="jrn__grid" data-stagger="120">{cards}
+    </div>
+
+    <div class="btn-row btn-row--center" style="margin-top:clamp(2rem,4.5vw,3.2rem);">
+      <a class="btn btn--ghost" href="blog.html">all stories {ARROW}</a>
+    </div>
+  </div>
+</section>
+"""
+
+
+# ======================================== PICKUP &amp; DROP + GET IN TOUCH
+def pickup_contact():
+    """One dark band carrying two jobs: transfers on the left with the map,
+    the contact card on the right. Replaces the old Getting Here + locale pair,
+    and keeps every phone number, address line and route fact from both."""
+    return f"""
+<!-- Pickup &amp; Drop + Get In Touch. The old 'Getting Here' map block and the
+     locale strip merged into one dark band — same routes, same numbers, same
+     addresses, one composition. Styles: site.css section 34. -->
+<section class="section on-green pdg" id="contact">
+  {curve('wave','var(--green)','top','curve--mirror')}
+  {wm('r','leafbig')}
+
+  <div class="wrap pdg__grid">
+    <div class="pdg__left">
+      <p class="label" data-reveal="up">transfers</p>
+      <h2 class="dhead" data-reveal="up" data-reveal-delay="60"><b>Pickup And Drop</b><b><em>Service Available</em></b></h2>
+      <p class="lede" style="margin-top:1.3rem;max-width:46ch;" data-reveal="up" data-reveal-delay="110">Comfortable pickup and drop can be arranged for guests arriving by train or by air. Tell us your arrival time when you book and a car will be waiting.</p>
+
+      <ul class="pdg__routes" data-reveal="up" data-reveal-delay="160">
+        <li>
+          <span class="pdg__ico" aria-hidden="true"><svg viewBox="0 0 32 32" fill="none"><rect x="6" y="6" width="20" height="16" rx="3" stroke="currentColor" stroke-width="1.2"/><path d="M6 13h20M10.5 26l2-4M21.5 26l-2-4" stroke="currentColor" stroke-width="1.2" stroke-linecap="round"/><circle cx="11" cy="18" r="1.3" fill="currentColor"/><circle cx="21" cy="18" r="1.3" fill="currentColor"/></svg></span>
+          <span><b>Gaya Junction</b>about 16.4 km &mdash; roughly 40 minutes via the Gaya&ndash;Bodhgaya Road</span>
+        </li>
+        <li>
+          <span class="pdg__ico" aria-hidden="true"><svg viewBox="0 0 32 32" fill="none"><path d="M16 4c1.1 0 2 1.5 2 3.4v4.2l9 5.2v2.6l-9-2.6v5.1l3 2.3v2l-5-1.4-5 1.4v-2l3-2.3v-5.1l-9 2.6v-2.6l9-5.2V7.4C14 5.5 14.9 4 16 4Z" stroke="currentColor" stroke-width="1.2" stroke-linejoin="round"/></svg></span>
+          <span><b>Gaya Airport</b>about 15.0 km from the terminal to the gate</span>
+        </li>
+        <li>
+          <span class="pdg__ico" aria-hidden="true"><svg viewBox="0 0 32 32" fill="none"><path d="M16 28s9-8.2 9-14.4A9 9 0 1 0 7 13.6C7 19.8 16 28 16 28Z" stroke="currentColor" stroke-width="1.2" stroke-linejoin="round"/><circle cx="16" cy="13.4" r="3.2" stroke="currentColor" stroke-width="1.2"/></svg></span>
+          <span><b>Hathiyar, Bodhgaya</b>Gaya, Bihar &mdash; 824231, India</span>
+        </li>
+      </ul>
+
+      <figure class="pdg__map" data-reveal="scale" data-reveal-delay="120">
+        <iframe src="{MAPEMBED}" title="Map showing Sambodhi Retreat, Hathiyar, Bodhgaya" loading="lazy" referrerpolicy="no-referrer-when-downgrade" allowfullscreen></iframe>
+      </figure>
+    </div>
+
+    <aside class="pdg__card" data-reveal="right" data-reveal-delay="140">
+      <p class="label">get in touch</p>
+      <h3 class="pdg__name">Sambodhi Retreat</h3>
+
+      <ul class="pdg__contact">
+        <li>
+          <span class="pdg__ico" aria-hidden="true"><svg viewBox="0 0 32 32" fill="none"><path d="M16 28s9-8.2 9-14.4A9 9 0 1 0 7 13.6C7 19.8 16 28 16 28Z" stroke="currentColor" stroke-width="1.2" stroke-linejoin="round"/><circle cx="16" cy="13.4" r="3.2" stroke="currentColor" stroke-width="1.2"/></svg></span>
+          <span>Hathiyar, Bodhgaya, Gaya,<br>Bihar &mdash; 824231, India</span>
+        </li>
+        <li>
+          <span class="pdg__ico" aria-hidden="true"><svg viewBox="0 0 32 32" fill="none"><path d="M27 22.3v3.2a2 2 0 0 1-2.3 2A24.6 24.6 0 0 1 4.5 7.3 2 2 0 0 1 6.5 5h3.2a2 2 0 0 1 2 1.7c.14 1 .4 2 .76 2.9a2 2 0 0 1-.45 2.1l-1.35 1.35a19.6 19.6 0 0 0 7.34 7.34l1.35-1.35a2 2 0 0 1 2.1-.45c.94.36 1.92.62 2.9.76a2 2 0 0 1 1.7 2.05Z" stroke="currentColor" stroke-width="1.2" stroke-linejoin="round"/></svg></span>
+          <span><a href="tel:+917488535210">+91 74885 35210</a><br><a href="tel:+917488535208">+91 74885 35208</a></span>
+        </li>
+        <li>
+          <span class="pdg__ico" aria-hidden="true"><svg viewBox="0 0 32 32" fill="none"><rect x="4" y="7" width="24" height="18" rx="2.5" stroke="currentColor" stroke-width="1.2"/><path d="m4.8 8.8 11.2 8 11.2-8" stroke="currentColor" stroke-width="1.2" stroke-linejoin="round"/></svg></span>
+          <span><a href="mailto:info@sambodhiretreat.com">info@sambodhiretreat.com</a></span>
+        </li>
+      </ul>
+
+      <p class="pdg__rate">Rooms from <b>&#8377;3,000</b> per night</p>
+
+      <div class="pdg__cta">
+        <a class="btn btn--gold" href="contact.html">make an enquiry {ARROW}</a>
+        <a class="btn btn--light" href="{BOOK}" target="_blank" rel="noopener">book a stay</a>
+      </div>
+
+      <p class="pdg__alt">Also at Jealgora, Govindpur Uttrayan NH-2, Dhanbad, Jharkhand &mdash; 828109</p>
+    </aside>
+  </div>
+</section>
+"""
+
+
+# ============================================================ PHOTO GALLERY
+# Asymmetric masonry. Every tile names its own span so the rhythm is composed
+# rather than uniform, and the reveal direction alternates strictly
+# left / right / left / right down the list, as the brief asks.
+GALLERY_TILES = [
+ ("gallery/2.jpg",  "The resort grounds at Sambodhi Retreat",            "tile--w2 tile--h3"),
+ ("rooms-col1/sambodhi-retreat-bodhgaya-green-caves-1.jpg", "Green Cave Cottages", "tile--h3"),
+ ("Homepage_Resort_INDEX/top-slider-img11.jpg", "The swimming pool",     "tile--h3"),
+ ("rooms-col1/sambodhi-retreat-bodhgaya-pyramid-cottages-1.jpg", "Pyramid Cottages", "tile--h2"),
+ ("dining/restaurant1.jpg", "The restaurant at Sambodhi Retreat",        "tile--w2 tile--h2"),
+ ("rooms-col1/sambodhi-retreat-bodhgaya-igloo-1.jpg", "Igloo Houses",    "tile--h2"),
+ ("rooms-col1/sambodhi-retreat-bodhgaya-timber-cottages-1.jpg", "Timber Cottages on stilts", "tile--h3"),
+ ("gallery/7.jpg",  "A celebration set up in the reception area",        "tile--w2 tile--h3"),
+ ("gallery/9.jpg",  "The quiet grounds and village trails",              "tile--h3"),
+ ("Gallery/top-post-img3.jpg", "A wedding at Sambodhi Retreat",          "tile--h2"),
+ ("promotions/1.jpg", "The International Convention Centre",             "tile--w2 tile--h2"),
+ ("Homepage_Resort_INDEX/learn-img1.jpg", "Buddha and the heritage landscape around Bodhgaya", "tile--h2"),
+]
+
+
+def photo_gallery():
+    tiles = "".join(f"""
+      <a class="gtile {span}" href="{IMG}{src}" data-lightbox data-reveal="{'gal-l' if i % 2 == 0 else 'gal-r'}"
+         aria-label="Open gallery image {i+1}: {alt}">
+        <img src="{IMG}{src}" alt="{alt}" loading="lazy" decoding="async">
+        <span class="gtile__veil" aria-hidden="true"></span>
+        <span class="gtile__zoom" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none"><circle cx="10.5" cy="10.5" r="6.5" stroke="currentColor" stroke-width="1.4"/><path d="M15.4 15.4 21 21M10.5 7.6v5.8M7.6 10.5h5.8" stroke="currentColor" stroke-width="1.4" stroke-linecap="round"/></svg></span>
+      </a>""" for i, (src, alt, span) in enumerate(GALLERY_TILES))
+
+    return f"""
+<!-- Photo Gallery. Asymmetric masonry, not an equal grid: each tile declares
+     its own column and row span. Reveal direction alternates strictly
+     left/right down the source order (site.css section 15 defines gal-l and
+     gal-r; the shared IntersectionObserver fires each tile once and unobserves,
+     so nothing re-animates on the way back up). Styles: site.css section 35. -->
+<section class="section on-white gal" id="gallery">
+  {wm('tr','sprig')}
+  {curve('arc','var(--white)','top')}
+  <div class="wrap">
+    <div class="shead shead--center">
+      <p class="label label--center" data-reveal="up">gallery</p>
+      <h2 class="dhead center gal__head" data-reveal="up" data-reveal-delay="80"><b>Photo</b><b><em>Gallery</em></b></h2>
+      <p class="lede shead__lede" data-reveal="up" data-reveal-delay="140">Cottages, the pool, the restaurant, the convention centre and the country around Hathiyar.</p>
+    </div>
+
+    <div class="gal__grid">{tiles}
+    </div>
+
+    <div class="btn-row btn-row--center" style="margin-top:clamp(2rem,4.5vw,3.2rem);">
+      <a class="btn btn--ghost" href="gallery.html">view full gallery {ARROW}</a>
+    </div>
+  </div>
+</section>
+"""
+
 
 # ==================================================================== HOME
 def hero_slides():
@@ -568,11 +925,8 @@ def home_body():
   </div>
 </section>
 
-<!-- Suites & Villas — two layered blocks. The picture spans 7 of 12 columns
-     and the copy panel starts on the last of them, so roughly a seventh of the
-     photograph sits behind the panel. The panel has its own background and is
-     the upper layer, so nothing is ever printed over the picture. Block 1 runs
-     picture-left; block 2 mirrors it. Styles: site.css section 30. -->
+{amenities_stage()}
+
 <section class="section on-green villas">
   {curve('wave','var(--green)','top')}
   <div class="wrap">
@@ -621,202 +975,11 @@ def home_body():
   </div>
 </section>
 
-<section class="section on-white">
-  {curve('arc','var(--cream)','top')}
-  {wm('tl')}{wm('tr','sprig')}
-  <div class="wrap">
-    <div class="shead shead--center">
-      <p class="label label--center" data-reveal="up">Amenities &amp; Experiences</p>
-      <h2 class="dhead center" style="margin-inline:auto;" data-reveal="up" data-reveal-delay="80"><b>Discover Luxury</b><b><em>Amenities</em></b></h2>
-      <p class="lede shead__lede" data-reveal="up" data-reveal-delay="90">Amenities at the resort include a swimming pool, with a range of indoor and outdoor activities alongside it. Painting, horse riding and table tennis can be arranged at extra cost.</p>
-      <p style="margin-top:1.6rem;" data-reveal="up" data-reveal-delay="150"><a class="alink alink--ruled" href="event-venue.html">Discover {ARROW_L}</a></p>
-    </div>
-    {amenity_grid()}
-  </div>
-</section>
 
-<section class="section on-white">
-  {curve('arc','var(--white)','top')}
-  {wm('bl')}
-  <div class="wrap split">
-    <div class="col-6 bleed-l" data-reveal="clip-l">
-      <figure class="frame frame--plx frame--portrait" style="margin:0">
-        <img src="{IMG}dining/restaurant1.jpg" alt="The restaurant at Sambodhi Retreat" data-parallax="0.28" loading="lazy" decoding="async">
-      </figure>
-    </div>
-    <div class="col-6" data-reveal="right">
-      <p class="label">dining</p>
-      <h2 class="dhead"><b>A Taste of</b><b><em>Sambodhi</em></b></h2>
-      <p class="lede justify" style="margin-top:1.4rem;">More than ten years of food and beverage experience sit behind this kitchen, in a room that stays professional without ever tipping into formality. The chef and his team built a menu unlike any other on the property, with organic produce running through it.</p>
-      <p style="margin-top:1.5rem;"><a class="alink" href="dining.html">Discover dining {ARROW_L}</a></p>
-    </div>
-  </div>
-</section>
-
-<section class="section on-sage">
-  {curve('arc','var(--sage)','top')}
-  {wm('bl','sprig')}
-  <div class="wrap">
-    <figure class="frame frame--plx frame--pano frame--wave" style="margin:0 0 clamp(2rem,4vw,3rem)" data-reveal="scale">
-      <img src="{IMG}gallery/9.jpg" alt="The quiet grounds at Sambodhi Retreat" data-parallax="0.22" loading="lazy" decoding="async">
-      <span class="overtitle overtitle--br overtitle--bleed"><span class="outline"><b>Wellness</b></span></span>
-    </figure>
-    <div class="split">
-      <div class="col-5" data-reveal="left">
-        <p class="label">wellness</p>
-        <h2 class="dhead"><b>Wellness &amp;</b><b><em>Rejuvenation</em></b></h2>
-      </div>
-      <div class="col-7" data-reveal="right">
-        <p class="lede">On one side, the swimming pool. On the other, the river Falgu. Between them, village trails and rooms built to hold their own temperature.</p>
-        <p class="body-copy justify" style="margin-top:1.1rem;">The igloo cottages carry their own splash pools &mdash; cold water, a cup of tea and warm snacks. Organic produce runs through the kitchen. Nothing here is in a hurry.</p>
-        <p style="margin-top:1.4rem;"><a class="alink" href="accommodations.html">Discover wellness {ARROW_L}</a></p>
-      </div>
-    </div>
-  </div>
-</section>
-
-<section class="section section--tight on-green">
-  {curve('wave','var(--green)','top')}
-  <div class="wrap shead shead--center" style="margin-bottom:clamp(2rem,4.5vw,3.2rem);">
-    <h2 class="dhead center" style="max-width:14ch;margin-inline:auto;" data-reveal="up"><b>Days here fill</b><b><em>themselves</em></b></h2>
-  </div>
-  {marquee_block()}
-</section>
-
-<section class="section on-sage">
-  {curve('arc','var(--sage)','top')}
-  {wm('tr','mandala')}
-  <div class="wrap">
-    <div class="trip" data-stagger="110">
-      <figure class="frame" style="margin:0" data-reveal="clip-u"><img src="{IMG}rooms-col1/sambodhi-retreat-bodhgaya-pyramid-cottages-1.jpg" alt="Pyramid cottage panelling" loading="lazy" decoding="async"></figure>
-      <figure class="frame" style="margin:0" data-reveal="clip-u"><img src="{IMG}rooms-col1/sambodhi-retreat-bodhgaya-green-caves-1.jpg" alt="Grass-clad cave cottages" loading="lazy" decoding="async"></figure>
-      <figure class="frame" style="margin:0" data-reveal="clip-u"><img src="{IMG}rooms-col1/sambodhi-retreat-bodhgaya-timber-cottages-1.jpg" alt="Timber cottage in split bamboo and cane" loading="lazy" decoding="async"></figure>
-    </div>
-    <h2 class="dhead" style="max-width:16ch;" data-reveal="up"><b>An Environmentally</b><b>Responsible</b><b><em>Stay</em></b></h2>
-    <p class="lede justify" style="margin-top:1.5rem;max-width:64ch;" data-reveal="up" data-reveal-delay="90">The pyramid cottages are panelled in pine milled from waste packaging wood; brick corbelled walls, a slant roof and wood rendering inside make them energy efficient. The grass-clad cave cottages condition the room to the weather outside, and the igloos hold an interior up to ten degrees below the air around them &mdash; so the cooling has less work to do. Timber cottages are clad in split bamboo and finished with cane. Every room is stocked with eco-friendly premium toiletries.</p>
-  </div>
-</section>
-
-<section class="section on-white">
-  {curve('arc','var(--white)','top')}
-  {wm('bl')}
-  <div class="wrap">
-    <figure class="frame frame--plx frame--pano frame--wave-top" style="margin:0 0 clamp(2rem,4vw,3rem)" data-reveal="scale">
-      <img src="{IMG}Homepage_Resort_INDEX/learn-img1.jpg" alt="Experiences at Sambodhi Retreat" data-parallax="0.2" loading="lazy" decoding="async">
-      <span class="overtitle overtitle--tr overtitle--bleed"><span class="outline"><b>Experiences</b></span></span>
-    </figure>
-    <div class="shead">
-      <h2 class="dhead" data-reveal="up"><b>Awaken And Inspire</b><b><em>Your Senses</em></b></h2>
-    </div>
-    <div class="threeup" data-stagger="130">
-      <article class="tblock" data-reveal="up">
-        <div class="tblock__media"><img src="{IMG}gallery/12.jpg" alt="Village trails and activities" loading="lazy" decoding="async"></div>
-        <h3 class="tblock__title">Activities</h3>
-        <p class="tblock__text body-copy">Racquetball, tennis, cricket and volleyball, planned excursions out into the country around Hathiyar, and one of the very few rain-dance facilities with a DJ around Bodhgaya.</p>
-        <a class="alink" href="event-venue.html">View all {ARROW_L}</a>
-      </article>
-      <article class="tblock" data-reveal="up">
-        <div class="tblock__media"><img src="{IMG}dining/restaurant2.jpg" alt="The restaurant at Sambodhi Retreat" loading="lazy" decoding="async"></div>
-        <h3 class="tblock__title">Dining</h3>
-        <p class="tblock__text body-copy">More than ten years of food and beverage experience sit behind this kitchen. The chef and his team built a menu unlike any other on the property, with organic produce running through it.</p>
-        <a class="alink" href="dining.html">View all {ARROW_L}</a>
-      </article>
-      <article class="tblock" data-reveal="up">
-        <div class="tblock__media"><img src="{IMG}promotions/1.jpg" alt="International Convention Centre" loading="lazy" decoding="async"></div>
-        <h3 class="tblock__title">Gatherings</h3>
-        <p class="tblock__text body-copy">Fifty thousand square feet under a ceiling above fifty feet, with capacity for up to 5,000 guests, alongside a fully soundproof conference hall for 100 to 400.</p>
-        <a class="alink" href="banquet-halls.html">View all {ARROW_L}</a>
-      </article>
-    </div>
-  </div>
-</section>
-
-<section class="section section--flush-top on-white">
-  <div class="wrap">
-    <div class="shead shead--center">
-      <p class="label label--center" data-reveal="up">destinations</p>
-      <h2 class="dhead center" style="margin-inline:auto;" data-reveal="up" data-reveal-delay="80"><b><em>Two addresses</em></b></h2>
-      <p class="lede shead__lede" data-reveal="up" data-reveal-delay="150">Sambodhi Retreat operates properties in Bodhgaya, Bihar and in Dhanbad, Jharkhand.</p>
-    </div>
-    <div class="feat" data-stagger="130">
-      <a class="fcard" href="accommodations.html" data-reveal="clip-u" style="aspect-ratio:16/10;">
-        <img src="{IMG}Homepage_Resort_INDEX/top-slider-img7.jpg" alt="Sambodhi Retreat Bodhgaya" loading="lazy" decoding="async">
-        <div class="fcard__in"><h3 class="fcard__name">Bodhgaya</h3>
-          <p class="fcard__text">Hathiyar, Bodhgaya, Gaya &mdash; sixty rooms, the convention centre and the conference hall.</p></div>
-      </a>
-      <a class="fcard" href="https://www.sambodhiretreat.org/top-luxury-hotel-resort-in-dhanbad.aspx" target="_blank" rel="noopener" data-reveal="clip-u" style="aspect-ratio:16/10;">
-        <img src="{IMG}HomePage-Villas/budhha-heights.jpg" alt="Sambodhi Retreat Dhanbad" loading="lazy" decoding="async">
-        <div class="fcard__in"><h3 class="fcard__name">Dhanbad</h3>
-          <p class="fcard__text">Jealgora, Govindpur Uttrayan, NH-2 &mdash; the sister property, with its own rooms and event spaces.</p></div>
-      </a>
-    </div>
-  </div>
-</section>
-
-<section class="section section--flush-top on-white">
-  {wm('tr','sprig')}
-  <div class="wrap">
-    <div class="shead shead--center">
-      <p class="label label--center" data-reveal="up">gallery</p>
-      <h2 class="dhead center" style="margin-inline:auto;" data-reveal="up" data-reveal-delay="80"><b><em>Take a look around</em></b></h2>
-      <p class="lede shead__lede" data-reveal="up" data-reveal-delay="150">Cottages, restaurant, reception and the natural attractions next door.</p>
-    </div>
-    <div class="mosaic" id="homeMosaic" data-stagger="80"></div>
-    <div class="btn-row btn-row--center" style="margin-top:clamp(1.8rem,4vw,3rem);">
-      <a class="btn btn--ghost" href="gallery.html">view full gallery {ARROW}</a>
-    </div>
-  </div>
-</section>
-
-<section class="section section--tight on-white">
-  {wm('bl')}
-  <div class="wrap">
-    <div class="shead shead--center">
-      <p class="label label--center" data-reveal="up">journal</p>
-      <h2 class="dhead center" style="margin-inline:auto;" data-reveal="up" data-reveal-delay="80"><b><em>Stories from Sambodhi</em></b></h2>
-    </div>
-    <article class="jfeature" style="margin-bottom:clamp(2.4rem,5vw,4rem);">
-      <div data-reveal="clip-l">
-        <figure class="frame frame--plx frame--wide" style="margin:0">
-          <img src="{IMG}Gallery/Make-Wedding-Special-at-Sambodhi-Retreat.jpg" alt="Weddings at Sambodhi Retreat" data-parallax="0.2" loading="lazy" decoding="async">
-        </figure>
-      </div>
-      <div data-reveal="right">
-        <p class="meta" style="margin-bottom:.9rem;">featured</p>
-        <h3 class="h3" style="margin-bottom:1rem;">How the best luxury resorts in Bodhgaya make wedding events special</h3>
-        <p class="body-copy">Bodhgaya is known for its spiritual weight and its landscape, and both work in favour of a wedding held here. A look at how venues and service in the city come together for the day.</p>
-        <p style="margin-top:1.4rem;"><a class="alink" href="https://www.sambodhiretreat.org/How-the-Best-Luxury-Resorts-in-Bodhgaya-Make-Wedding-Events-Special.aspx" target="_blank" rel="noopener">Read more {ARROW_L}</a></p>
-      </div>
-    </article>
-    <div class="jgrid" data-stagger="110">
-      {"".join(f'''<a class="jcard" href="{u}" target="_blank" rel="noopener" data-reveal="up">
-        <div class="jcard__media"><img src="{IMG}{i}" alt="{t}" loading="lazy" decoding="async"></div>
-        <h3 class="jcard__title">{t}</h3><p class="jcard__excerpt">{e}</p></a>''' for t,e,i,u in POSTS[:3])}
-    </div>
-    <div class="btn-row btn-row--center" style="margin-top:clamp(1.8rem,4vw,2.8rem);">
-      <a class="btn btn--ghost" href="blog.html">all stories {ARROW}</a>
-    </div>
-  </div>
-</section>
-
-<section class="section on-green">
-  {curve('wave','var(--green)','top','curve--mirror')}
-  <div class="wrap split">
-    <div class="col-6" data-reveal="left">
-      <h2 class="dhead"><b>Getting Here</b><b><em>Hathiyar, Bodhgaya</em></b></h2>
-      <ul class="routes" style="margin-top:1.8rem;">
-        <li>{VAN} About 16.4 km from Gaya Junction &mdash; roughly 40 minutes via the Gaya&ndash;Bodhgaya Road</li>
-        <li>{VAN} About 15.0 km from Gaya Airport</li>
-        <li>{VAN} Hathiyar, Bodhgaya, Gaya, Bihar &mdash; 824231, India</li>
-      </ul>
-      <div class="btn-row"><a class="btn btn--light" href="contact.html">contact &amp; directions {ARROW}</a></div>
-    </div>
-    <div class="col-6" data-reveal="clip-r">
-      <iframe class="mapframe" src="{MAPEMBED}" title="Map showing Sambodhi Retreat, Bodhgaya" loading="lazy" referrerpolicy="no-referrer-when-downgrade" allowfullscreen></iframe>
-    </div>
-  </div>
-</section>
-""" + locale_block() + cta_band(IMG+"Homepage_Resort_INDEX/top-slider-img10.jpg","Your","Escape")
+{blog_section()}
+{pickup_contact()}
+{photo_gallery()}
+"""
 
 # =============================================================== INNER BODIES
 def banner(img, crumb, title_a, title_b, tag):

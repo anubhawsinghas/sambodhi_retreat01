@@ -14,6 +14,325 @@ build.py                 regenerates all 8 pages from one shared shell
 
 ---
 
+## v9 — "Celebrate Your Special Moments" removed
+
+The v8 brief had this section on both its remove list and its preserve list, so
+it was held behind a flag. That is now resolved, and it is gone completely: the
+markup, `wedding_section()`, `WED_SHOTS`, `WED_POINTS`, the `REMOVE_WEDDING`
+flag, CSS block 32 (`.wedg*`) and the `wed-l` / `wed-r` reveal variants.
+
+Final flow:
+
+`Hero > Our Story > Discover Luxury Amenities > Suites & Villas >
+Our Accommodation > Stories From Sambodhi > Pickup & Drop + Get In Touch >
+Photo Gallery > Footer`
+
+### The reveal variants were interleaved
+
+`wed-l`/`wed-r` and `gal-l`/`gal-r` are not in separate blocks — the v7 patch
+inserted the gallery pair *between* the two wedding rules. Cutting the range
+from the wedding comment to the next comment would have taken the gallery
+variants with it and silently killed the Photo Gallery entrance animation. An
+assertion caught it; the rules came out individually instead, and the gallery
+pair is checked intact afterwards.
+
+### One deliberate change to a section that was not removed
+
+Accommodation and Stories are both cream. With the wedding section gone they
+became one undifferentiated run — measured at **240px of flat ground** between
+the carousel and the Stories heading, with no visual break at all.
+
+Stories now sits on ivory behind an arc curve. That is not new design language:
+it is exactly the treatment the removed section carried, so the page keeps its
+alternation (cream > green > cream > ivory > green > cream > green) and the
+transition is a curve rather than a seam. Nothing else about Stories changed.
+
+### A pre-existing mobile defect, fixed in the top-to-bottom pass
+
+In the accommodation carousel below 900px, `.carousel__arrows` switched to
+`position:static` but never reset `transform:translateY(-100%)` — and transforms
+still apply to static elements. The arrow pair was being dragged a full height
+upward, landing on top of the slide's "full details" link. Present since long
+before these edits; measured overlap at 390px was 335x18px and is now 18px of
+clearance.
+
+### Verified
+
+- Every section butts its neighbour at exactly 0px at 390, 768 and 1440 —
+  no blank bands, including the last section to the footer.
+- Hairline at fractional DPR: 0.9 at 1.25x, against 68.4 in the original build.
+- An overlap sweep of every link, button and heading returns byte-identical
+  results before and after the removal; the eight reported pairs are hidden
+  overlay controls and the decorative `outline` word layered behind links.
+- 8/8 pages script-clean, 46/46 reveals settle, 21/21 slider assertions pass,
+  no overflow or script errors across 72 page-width combinations.
+
+
+---
+
+## v8 — sections removed
+
+The homepage now runs:
+
+`Hero > Our Story > Discover Luxury Amenities > Suites & Villas >
+Our Accommodation > Celebrate Your Special Moments > Stories From Sambodhi >
+Pickup & Drop + Get In Touch > Photo Gallery > Footer`
+
+Six sections were cut. Two items on the list could not simply be actioned:
+
+### "Store" does not exist
+
+There is no Store section, no Store nav item and no store page anywhere in this
+project, and there never has been. Nothing to remove.
+
+### "Celebrate Your Special Moments" IS the Wedding Experience section
+
+The remove list asks for it; the preserve list in the same brief asks to keep
+the "Wedding Experience section". They are one section — v7 renamed it from
+"Wedding Experiences" to "Celebrate Your Special Moments", which is the likely
+source of the collision.
+
+Rather than guess on a destructive edit, it sits behind a flag near the top of
+`build.py`:
+
+    REMOVE_WEDDING = False
+
+Set it to `True`, run `python3 build.py`, and the section and its entrance
+animations disappear. Everything else already flows correctly without it —
+Accommodation and Stories are both cream, so they butt seamlessly.
+
+### "Experience image section" read as "Awaken And Inspire Your Senses"
+
+That was the only image-led experiences section: a full-width panoramic frame
+with an overlaid title, then three text blocks (Activities, Dining, Gatherings).
+The amenities slider is the other candidate but it is named "Discover Luxury
+Amenities" on the page, so this reading seemed clear. Say the word if the slider
+was meant instead.
+
+### Dead code, measured rather than guessed
+
+Deleting a section does not make its CSS dead — most of these classes are shared
+with the inner pages. So both builds were compiled and their unused-class sets
+diffed; only what v8 newly orphaned was removed:
+
+| Removed | Was used by |
+|---|---|
+| CSS section 17, the numbered marquee, plus `@keyframes slide` and its reduced-motion stop | Days here fill themselves |
+| `.feat`, `.fcard`, `.fcard__in/__name/__text` | the deleted feature panels |
+| `.trip` grid and its two breakpoints | the three-photo strip in Two addresses |
+| `site.js` module 16c (marquee track duplication) | Days here fill themselves |
+| `.fcard` from the hover-media selector in module 11 | as above |
+| `MARQUEE` data and `marquee_block()` in `build.py` | Days here fill themselves |
+
+Forty further classes were already unused **before** this change and were left
+alone on purpose: `.lb__*`, `.img-missing`, `.tile`, `.mosaic` and
+`.cursor-ring` are all attached by JavaScript at runtime, so a blanket
+unused-CSS purge would have broken the lightbox, the broken-image fallback and
+the gallery mosaic. `.overtitle--tr` was also left: it is one leg of a
+four-way positioning utility whose other legs are equally unused, so it is a
+general utility rather than anything belonging to a deleted section.
+
+Net: `index.html` -12,923 bytes, `site.css` -2,374, `site.js` -319.
+
+### Verified after the cut
+
+- **No blank gaps.** Every remaining section butts its neighbour at exactly 0px,
+  including the last section to the footer. The amenities stage now sits
+  directly above Suites & Villas again, which is the arrangement whose green
+  wave rising out of the photograph was verified in v6.
+- **Backgrounds and curves intact.** Hairline seam at fractional DPR: 0.9 at
+  1.25x and 0.7 at 1.5x, against 68.4 / 73.8 in the original build.
+- 8/8 pages script-clean, 52/52 reveals settle, 21/21 slider assertions pass,
+  and no overflow or script errors across 48 page-width combinations.
+
+
+---
+
+## v7 — Wedding, Journal, Pickup & Drop, Photo Gallery, and a rebuilt footer
+
+The home page now runs in the order the brief sets:
+
+`Hero > Our Story > Awaken/Experiences > Discover Luxury Amenities > Dining >
+Wellness > Days here fill themselves > Environmentally Responsible Stay >
+Two addresses > Suites & Villas > Our Accommodation > **Wedding** > **Stories
+From Sambodhi** > **Pickup & Drop + Get In Touch** > **Photo Gallery** > Footer`
+
+The brief fixes the tail (Accommodation, then Wedding, Blog, Contact, Gallery,
+Footer) and names most of the rest, but not Dining, Wellness, the marquee, the
+eco band or Two addresses. Those were **moved up into the middle rather than
+dropped**, so the tail is exactly as specified and no content was lost.
+
+### What was built
+
+- **Wedding — asymmetric, not four cards.** Three photographs and one copy panel
+  in a 12-column grid: a tall portrait anchoring the left across both rows, a
+  wide landscape along the top right, the dark copy panel beneath it, and a
+  square tucked into the remaining well. Each block declares its own reveal
+  direction, so the composition assembles from both sides as it arrives.
+- **Stories From Sambodhi.** Three featured cards from the resort's own journal
+  with category pill, title, excerpt and arrow. On hover the card lifts, the
+  image zooms, the title turns gold and the arrow slides.
+- **Pickup & Drop + Get In Touch.** One dark band replacing the old Getting Here
+  block and the locale strip, carrying every route, number and address both of
+  them had, plus the map and an ivory contact card.
+- **Photo Gallery.** Twelve tiles, four distinct sizes, `grid-auto-flow:dense`.
+  Reveal direction alternates strictly left/right/left/right down the source
+  order; the shared IntersectionObserver fires each tile once and unobserves.
+  Verified: 12/12 reveal, order `lrlrlrlrlrlr`, and 0 tiles re-animate after
+  scrolling away and back.
+- **Footer.** Deep green botanical ground with one large ivory panel: brand mark,
+  address, both phone numbers and the email left; Explore and Policies columns;
+  newsletter right. The consent checkbox is real — the form validates the address
+  and refuses to submit without consent, reporting into an `aria-live` region.
+
+### Two more equal-specificity traps, both caught by rendering
+
+- **Gallery tiles came out identical.** `tile--w2 / --h2 / --h3` are shared with
+  the mosaic in section 22, declared at (0,1,0) and *earlier* in the file than
+  `.gtile`, whose own `grid-column:span 1; grid-row:span 2` therefore won. The
+  grid rendered as a uniform 4x3. Re-declared as `.gal__grid .tile--w2` etc. at
+  (0,2,0). Measured: four distinct tile sizes now.
+- **The Wedding section was built twice.** The v6 pass had already placed one
+  after the Accommodation carousel; the v7 patch added another in the tail. Only
+  visible in a section-by-section listing of the built page, not in the diff.
+
+### Content integrity
+
+0 links or media dropped from any page except the home page, where three go: two
+belong to a journal post that moved to blog.html (where it still lives, with its
+image), and one was the retired CTA band's background, still used as
+gallery.html's hero.
+
+The footer's single copyright line was split into a brand column (address, both
+numbers, email) and a bottom bar (copyright, second property) — the diff reads
+that as missing sentences, but every fact is present on all 8 pages. "Stay
+updated with resort news" became "Stay updated with Sambodhi Retreat news", as
+the brief asks.
+
+One real regression was caught and repaired: **"Rooms from Rs 3,000 per night"**
+lived on the closing CTA band, which the Gallery-then-Footer flow retires. It is
+a commercial claim, so it now sits in the contact card beside the enquiry and
+booking buttons.
+
+### Open question
+
+**Cancellation & Refund Policy.** The brief asks for it but also says to link
+only to pages that exist. Privacy and Terms both exist on sambodhiretreat.org
+and are linked directly; there is no cancellation page I could confirm from
+here, so that link points at `contact.html` rather than at a guessed URL. Give
+me the real URL and it is a one-line change.
+
+
+---
+
+## v6 — the white line, a cinematic amenities stage, and Wedding Experiences
+
+Three things were asked for. All three are in, and everything below was measured
+rather than eyeballed.
+
+### 1. The white line — found, and it was not where it looked
+
+`.curve--top` sat at `bottom:100%`, putting the shape's flat bottom edge exactly
+on the section boundary. `preserveAspectRatio="none"` stretches the 1440x150
+viewBox to whatever the viewport is, so that edge lands on a fractional device
+pixel and the antialiased row let the section *behind* bleed through.
+
+**It only appears at fractional device pixel ratios** — Windows display scaling
+at 125% or 150%, which is why it can look like it comes and goes. Measured peak
+brightness spike across every curved boundary on the home page:
+
+| | DPR 1 | DPR 1.25 | DPR 1.5 | DPR 2 |
+|---|---|---|---|---|
+| before | 0.0 | **68.4** | **73.8** | 0.0 |
+| after | 0.0 | 0.9 | 0.2 | 0.0 |
+
+The fix is one line per direction: shift the shape 1px into its own section, so
+that antialiased row is covered by the section's own colour. The shape already
+carries that colour, so nothing moves visually. `.hero__wave` had always done
+this (`bottom:-1px`); the curves never did.
+
+### 2. Discover Our Amenities — now directly after Our Story
+
+Cream editorial introduction, an organic wave spilling over the photograph, then
+a full-bleed stage. Five slides cross-slide and cross-fade with a slow cinematic
+drift; a rail of five tall bordered cells is ruled straight over the picture.
+
+The rail **is** the slider. One index drives background, caption and cell, so
+they cannot disagree. Click, arrow keys, Home/End and swipe all work; a click
+restarts the clock from the slide you picked, the automatic advance does not.
+The gold frame and the filling progress bar mark the live cell, and both hold
+while the pointer rests on the rail, while the section is off screen, and while
+the tab is in the background.
+
+**No spa.** Section 4 of the brief suggests a "Spa & Wellness" slide. This build
+has held since v4 that the resort publishes no spa or treatment facility, and
+inventing one would put a false claim on a booking site. Slot 03 is **Nature &
+Trails**. Section 7 of the brief enumerates exactly five panels, so nothing else
+shifted. Say the word and it becomes a spa.
+
+### 3. Wedding Experiences — after the accommodation carousel
+
+Three full-width editorial compositions rather than three cards, alternating
+picture-left / picture-right / picture-left, on ivory so the arc above has two
+tones to move between. Each block arrives on its own scroll through the shared
+reveal system, which fires once per element and unobserves — so nothing replays
+on the way back up. Two new reveal variants (`wed-l` / `wed-r`) carry a longer
+horizontal push plus a slight scale at 820/950ms.
+
+Those two rules **must** be written before `[data-reveal].is-in`. Both selectors
+weigh the same, so appended at the end of the file they would have won the
+settle and the blocks would have animated in and then never arrived.
+
+### Two specificity traps worth knowing about
+
+- **`:has()` inherits its argument's specificity.** `.section:has(+ section
+  .curve--top)` weighs (0,2,2), so `.section.amenx{padding-bottom:0}` at (0,2,0)
+  lost silently. Measured: 247.5px of unwanted padding parked a cream gap
+  between the photograph and the green wave. Now `.section.on-white.amenx`.
+- **The next section's wave is painted by an element outside its own section.**
+  The stage needs `z-index:2` to clear this section's decoration layer, which
+  also put it above that wave at `z-index:1` — the photograph covered it and the
+  junction went straight back to being the hard edge this brief exists to
+  remove. `.amenx + .section > .curve--top{z-index:3}` lifts only that one.
+
+### Measured, not assumed
+
+- **Contrast.** Every text run on the stage, on all five slides, sampled against
+  the real composited backdrop with the type hidden. Worst case 4.50:1 at 1440px
+  and 7.55:1 at 390px — both are the 33-57px title, which needs 3:1. Body copy
+  worst is 4.70:1. The first 390px pass failed at 4.15:1, which is why the phone
+  breakpoint carries its own scrim ramp: the left-to-right half of the desktop
+  gradient stops doing any work once the caption spans the full width.
+- **Slider behaviour.** 21 assertions driven against the real generated markup —
+  index wrap, class/ARIA sync across all three lists, direction, `.is-out`
+  cleanup, timer ownership, hold, keyboard wrapping, roving tabindex.
+- **No overflow, no script errors.** 8 pages x 11 widths from 320 to 1920.
+- **Content integrity.** 0 links or media dropped anywhere. Six sentences left
+  the retired amenity grid; each was checked as still present on the same page.
+  The seventh — "painting, horse riding and table tennis can be arranged at
+  extra cost" — was a pricing disclosure that survived only on event-venue.html,
+  so it was restored to the home page under the amenities introduction.
+
+### A correction I owe you
+
+I first reported a `vQueue is not a function` crash on index.html as a real bug.
+It was not. My test stub fired IntersectionObserver callbacks synchronously
+inside `observe()`; the spec queues the observation and delivers it at the next
+rendering update, which is exactly what module 6c's forward declaration relies
+on. The harness was wrong, the site was fine, and the harness now delivers
+asynchronously. No site code was changed on account of it.
+
+### Verified against substitute photographs
+
+The resort's images are served from `www.sambodhiretreat.org`, which this build
+environment cannot reach. Every render above used local photographs standing in
+for the remote ones. Layout, spacing, seams and the scrim ramps are therefore
+verified; the specific crop of each real photograph is not. Worth one pass on a
+staging URL with the real images before this goes live.
+
+
+---
+
 ## What the screenshots changed
 
 Last round I could read the reference's DOM but not render it, so fonts, colours

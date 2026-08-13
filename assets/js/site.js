@@ -498,7 +498,7 @@
     })();
 
     doc.addEventListener('mouseover', function (e) {
-      var media = e.target.closest('.tile, .frame, .fcard, .rcard__media, .slide__media, .jcard__media, .tblock__media');
+      var media = e.target.closest('.tile, .frame, .rcard__media, .slide__media, .jcard__media, .tblock__media');
       var hot   = e.target.closest('a, button, input, textarea, select, [role="tab"]');
       ring.classList.toggle('is-media', !!media && !hot);
       ring.classList.toggle('is-hot', !media && !!hot);
@@ -724,11 +724,200 @@
     go(0);
   });
 
-  /* ------------------------------------------------------------ 16c. MARQUEE */
-  // Duplicate the track contents so the -50% keyframe loops seamlessly.
-  $$('.marquee__track').forEach(function (t) {
-    if (REDUCED) { t.style.animation = 'none'; return; }
-    t.innerHTML = t.innerHTML + t.innerHTML;
+  /* ------------------------------------------------- 18. AMENITIES SLIDER */
+  // One index drives three lists — background, caption, rail cell — so the
+  // photograph, the words and the marked panel can never disagree about which
+  // amenity is showing. Direction is published to CSS as --dir, which is what
+  // makes an advance slide left and a step back slide right using one rule.
+  //
+  // The timer is owned by sync(), not by the click handler: it runs only while
+  // the stage is on screen, the tab is visible, and the pointer is not resting
+  // on the rail. Anything else — choosing, reading, another tab — and it holds.
+  $$('[data-amenx]').forEach(function (stage) {
+    var slides = $$('.amenx__slide', stage);
+    var caps   = $$('.amenx__cap', stage);
+    var cells  = $$('.amenx__cell', stage);
+    var rail   = $('.amenx__cells', stage);
+    var n = Math.min(slides.length, caps.length, cells.length);
+    if (n < 2 || !rail) return;
+
+    var DUR = parseInt(stage.getAttribute('data-amenx-interval'), 10) || 6400;
+    stage.style.setProperty('--amenx-dur', DUR + 'ms');
+
+    var i = 0, timer = null;
+    var inView = false, resting = false;
+
+    // Re-arm a CSS animation. Clearing the property, forcing a reflow and
+    // handing it back is the only way to make an animation replay without
+    // swapping the class that owns it.
+    function rearm(el) {
+      if (!el || REDUCED) return;
+      el.style.animation = 'none';
+      void el.offsetWidth;
+      el.style.animation = '';
+    }
+    function rearmBar() { rearm(cells[i].querySelector('.amenx__prog')); }
+
+    function show(next, dir) {
+      next = (next % n + n) % n;
+      if (next === i) return false;
+      stage.style.setProperty('--dir', dir);
+
+      var out = slides[i];
+      out.classList.remove('is-active');
+      out.classList.add('is-out');
+      caps[i].classList.remove('is-active');
+      cells[i].classList.remove('is-active');
+      cells[i].setAttribute('aria-selected', 'false');
+      cells[i].tabIndex = -1;
+
+      // Strip .is-out once the outgoing picture has faded, so its reset back to
+      // the entry pose happens at opacity 0 where nobody can see it. Timed per
+      // element rather than on one shared handle, or a fast second click would
+      // orphan the first slide at the exit pose.
+      if (out._amx) clearTimeout(out._amx);
+      out._amx = setTimeout(function () {
+        out.classList.remove('is-out');
+        out._amx = null;
+      }, 1000);
+
+      i = next;
+
+      if (slides[i]._amx) { clearTimeout(slides[i]._amx); slides[i]._amx = null; }
+      slides[i].classList.remove('is-out');
+      slides[i].classList.add('is-active');
+      caps[i].classList.add('is-active');
+      cells[i].classList.add('is-active');
+      cells[i].setAttribute('aria-selected', 'true');
+      cells[i].tabIndex = 0;
+
+      rearm(slides[i].querySelector('img'));   // fresh cinematic pass
+      return true;
+    }
+
+    // Keep the live cell visible once the rail is a scroller (mobile).
+    function follow() {
+      if (rail.scrollWidth <= rail.clientWidth + 4) return;
+      var c = cells[i];
+      var x = Math.max(0, c.offsetLeft - (rail.clientWidth - c.offsetWidth) / 2);
+      if (rail.scrollTo) rail.scrollTo({ left: x, behavior: REDUCED ? 'auto' : 'smooth' });
+      else rail.scrollLeft = x;
+    }
+
+    function sync() {
+      var run = inView && !resting && !doc.hidden && !REDUCED;
+      stage.classList.toggle('is-held', !run && inView);
+      if (run) {
+        if (!timer) { rearmBar(); timer = setInterval(function () { select(i + 1, 1, false); }, DUR); }
+      } else if (timer) {
+        clearInterval(timer); timer = null;
+      }
+    }
+
+    // restart: a reader's choice resets the clock from the slide they picked,
+    // so they get a full interval to look at it. The automatic advance does
+    // not, or the cadence would drift a frame later on every step.
+    function select(next, dir, restart) {
+      if (!show(next, dir)) rearmBar();
+      follow();
+      if (restart) { if (timer) { clearInterval(timer); timer = null; } sync(); }
+    }
+
+    cells.forEach(function (cell, k) {
+      cell.addEventListener('click', function () { select(k, k >= i ? 1 : -1, true); });
+    });
+
+    rail.addEventListener('keydown', function (e) {
+      var to = null;
+      if (e.key === 'ArrowRight' || e.key === 'ArrowDown') to = i + 1;
+      else if (e.key === 'ArrowLeft' || e.key === 'ArrowUp') to = i - 1;
+      else if (e.key === 'Home') to = 0;
+      else if (e.key === 'End') to = n - 1;
+      if (to === null) return;
+      e.preventDefault();
+      select(to, to > i ? 1 : -1, true);
+      cells[i].focus();
+    });
+
+    // Hold while the reader is choosing or reading — and give keyboard users
+    // the same hold, which is also the pause mechanism auto-advancing content
+    // is meant to offer.
+    if (FINE) {
+      rail.addEventListener('mouseenter', function () { resting = true;  sync(); });
+      rail.addEventListener('mouseleave', function () { resting = false; sync(); });
+    }
+    rail.addEventListener('focusin',  function () { resting = true;  sync(); });
+    rail.addEventListener('focusout', function (e) {
+      if (!rail.contains(e.relatedTarget)) { resting = false; sync(); }
+    });
+
+    // Swipe the picture. Touches that begin on the rail belong to the rail,
+    // which does its own horizontal scrolling.
+    var x0 = null, y0 = null;
+    stage.addEventListener('touchstart', function (e) {
+      if (e.target.closest && e.target.closest('.amenx__cells')) { x0 = null; return; }
+      x0 = e.touches[0].clientX; y0 = e.touches[0].clientY;
+    }, { passive: true });
+    stage.addEventListener('touchend', function (e) {
+      if (x0 === null) return;
+      var dx = e.changedTouches[0].clientX - x0;
+      var dy = e.changedTouches[0].clientY - y0;
+      if (Math.abs(dx) > 48 && Math.abs(dx) > Math.abs(dy)) {
+        var d = dx < 0 ? 1 : -1;
+        select(i + d, d, true);
+      }
+      x0 = y0 = null;
+    }, { passive: true });
+
+    doc.addEventListener('visibilitychange', sync);
+
+    if ('IntersectionObserver' in window) {
+      new IntersectionObserver(function (entries) {
+        entries.forEach(function (en) { inView = en.isIntersecting; });
+        sync();
+      }, { threshold: 0.12 }).observe(stage);
+    } else {
+      inView = true; sync();
+    }
+  });
+
+  /* --------------------------------------------------- 19. NEWSLETTER FORM */
+  // There is no backend to post to, so the form's job is to be honest about
+  // what it can and cannot do: validate the address, require the consent box
+  // the brief asks for, and say so in a live region rather than silently
+  // reloading the page.
+  $$('#newsletter').forEach(function (form) {
+    var note = $('.news__note', form.parentNode);
+    var email = $('#news-email', form);
+    var consent = $('#news-consent', form.parentNode);
+
+    var say = function (msg, ok) {
+      if (!note) return;
+      note.textContent = msg;
+      if (ok) note.setAttribute('data-ok', ''); else note.removeAttribute('data-ok');
+    };
+
+    form.addEventListener('submit', function (e) {
+      e.preventDefault();
+      var v = (email && email.value || '').trim();
+      if (!v || !/^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/.test(v)) {
+        say('Please enter a valid email address.');
+        if (email) email.focus();
+        return;
+      }
+      if (consent && !consent.checked) {
+        say('Please accept the Privacy Policy to subscribe.');
+        consent.focus();
+        return;
+      }
+      say('Thank you — we will be in touch at ' + v + '.', true);
+      form.reset();
+      if (consent) consent.checked = false;
+    });
+
+    if (consent) consent.addEventListener('change', function () {
+      if (consent.checked && note && !note.hasAttribute('data-ok')) say('');
+    });
   });
 
   /* ---------------------------------------------------------- 17. YEAR STAMP */
