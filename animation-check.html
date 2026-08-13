@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Suites &amp; Villas — animation self-check</title>
+<script>document.documentElement.className += ' js';</script>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;1,400&family=Manrope:wght@400;500;600&display=swap" rel="stylesheet">
+
+<!-- The real stylesheet. If this file is stale, the checks below will say so. -->
+<link rel="stylesheet" href="assets/css/site.css">
+
+<style>
+  /* Only the checker's own chrome lives here — everything being tested comes
+     from assets/css/site.css and assets/js/site.js. */
+  body{ background:var(--white,#F2EEE8); }
+  .ck{ max-width:820px; margin-inline:auto; padding:clamp(1.4rem,5vw,3.5rem) clamp(1rem,4vw,2rem); }
+  .ck h1{ font-family:var(--f-display,Georgia),serif; font-weight:400;
+          font-size:clamp(1.7rem,5vw,2.6rem); line-height:1.1; margin:0 0 .4rem; }
+  .ck__sub{ color:var(--muted,#4E5C52); margin:0 0 2rem; }
+  .ck h2{ font-family:var(--f-sans,system-ui),sans-serif; font-size:.7rem; font-weight:600;
+          letter-spacing:.24em; text-transform:uppercase; color:var(--gold,#A98A4A);
+          margin:2.4rem 0 .9rem; }
+  .row{ display:flex; gap:.9rem; align-items:flex-start;
+        padding:.75rem 0; border-top:1px solid var(--line,rgba(18,36,30,.13)); }
+  .row:last-child{ border-bottom:1px solid var(--line,rgba(18,36,30,.13)); }
+  .tag{ flex:0 0 auto; min-width:74px; text-align:center; border-radius:999px;
+        padding:.22rem .6rem; font-size:.66rem; font-weight:600;
+        letter-spacing:.1em; text-transform:uppercase; }
+  .ok  { background:#1f5136; color:#fff; }
+  .bad { background:#8c2f2f; color:#fff; }
+  .info{ background:#8a7434; color:#fff; }
+  .wait{ background:#5d6a60; color:#fff; }
+  .row b{ font-weight:600; display:block; }
+  .row span{ color:var(--muted,#4E5C52); font-size:.9rem; }
+  .verdict{ margin:2rem 0 0; padding:1.2rem 1.4rem; border-radius:10px;
+            background:#17291E; color:#fff; font-size:1rem; line-height:1.6; }
+  .verdict b{ color:#C6A667; }
+  .scrollnote{ margin:3rem 0 1rem; color:var(--muted,#4E5C52); font-size:.9rem; font-style:italic; }
+  .spacer{ height:120vh; }
+</style>
+</head>
+<body>
+
+<div class="ck">
+  <h1>Suites &amp; Villas — animation self-check</h1>
+  <p class="ck__sub">This page loads your actual <code>assets/css/site.css</code> and
+     <code>assets/js/site.js</code> and reports what they are doing in <em>this</em>
+     browser. Safe to delete before you deploy.</p>
+
+  <h2>Environment</h2>
+  <div id="env"></div>
+
+  <h2>Stylesheet</h2>
+  <div id="css"></div>
+
+  <h2>Script</h2>
+  <div id="js"></div>
+
+  <div class="verdict" id="verdict">Running checks…</div>
+
+  <p class="scrollnote">Scroll down — the block below is a real one, wired to the
+     real code. It should slide in from opposite sides and meet.</p>
+</div>
+
+<div class="spacer"></div>
+
+<!-- A genuine .villa block, so site.js picks it up exactly as it does on the home page -->
+<section class="section on-green villas" style="padding-block:6rem;">
+  <div class="wrap">
+    <article class="villa villa--a">
+      <figure class="villa__media" data-villa-in="left">
+        <img src="New_img/slider2.png" alt="" decoding="async">
+      </figure>
+      <div class="villa__copy" data-villa-in="right" data-villa-delay="120">
+        <h3 class="villa__name">Live test block</h3>
+        <p class="villa__text">If this photograph came in from the left and this panel
+           came in from the right, meeting with the panel lapped over the picture,
+           the animation is working.</p>
+      </div>
+    </article>
+  </div>
+</section>
+
+<div class="spacer"></div>
+<div class="ck"><p class="ck__sub">Scroll back up — the block should reset and replay.</p></div>
+
+<script src="assets/js/site.js"></script>
+<script>
+(function () {
+  var reduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  var media = document.querySelector('.villa__media');
+  var block = document.querySelector('.villa');
+
+  function row(host, state, label, detail) {
+    var cls = { ok:'ok', bad:'bad', info:'info', wait:'wait' }[state];
+    var txt = { ok:'pass', bad:'fail', info:'note', wait:'scroll' }[state];
+    document.getElementById(host).insertAdjacentHTML('beforeend',
+      '<div class="row"><span class="tag ' + cls + '">' + txt + '</span>' +
+      '<div><b>' + label + '</b><span>' + detail + '</span></div></div>');
+  }
+
+  /* -------- environment -------- */
+  row('env', reduced ? 'info' : 'ok', 'Reduced motion',
+      reduced
+        ? 'ON. Your system asks for reduced motion, so the animation is switched off ON PURPOSE — everything appears in place. This alone explains "no animation". Turn it off in your OS accessibility settings to see the motion.'
+        : 'Off — animation is allowed to run.');
+
+  row('env', 'IntersectionObserver' in window ? 'ok' : 'bad', 'IntersectionObserver',
+      'IntersectionObserver' in window ? 'Supported.' : 'Not supported — the reveal cannot trigger.');
+
+  /* -------- stylesheet -------- */
+  // Under reduced motion the stylesheet sets `transition:none` and
+  // `transform:none` on purpose, so neither of these can be measured. Reporting
+  // them as failures would send you hunting a cache problem that isn't there —
+  // they report as unmeasurable instead.
+  var ms  = getComputedStyle(media);
+  var dur = ms.transitionDuration;
+  var hasNewTiming = /1\.15s/.test(dur);
+  row('css', reduced ? 'info' : (hasNewTiming ? 'ok' : 'bad'), 'Transition timing',
+      reduced
+        ? 'Cannot be measured while reduced motion is on — the stylesheet zeroes it deliberately. Turn Reduce Motion off and reload to verify the file.'
+        : 'Reads <code>' + dur + '</code>. ' + (hasNewTiming
+            ? 'This is the current 1s / 1.15s pair.'
+            : 'Expected "1s, 1.15s". A different value means site.css is the OLD file — most likely a cached copy, or an unzip that skipped existing files.'));
+
+  var img = media.querySelector('img');
+  var hasParallaxRule = /scale|matrix/.test(getComputedStyle(img).transform || '');
+  row('css', reduced ? 'info' : (hasParallaxRule ? 'ok' : 'bad'), 'Image parallax rule',
+      reduced
+        ? 'Cannot be measured while reduced motion is on — the transform is suppressed deliberately.'
+        : (hasParallaxRule
+            ? 'The scale/drift transform is applied to the photograph.'
+            : 'No transform on the image — site.css is missing the --villa-p rule.'));
+
+  var startsHidden = reduced ? true : (+ms.opacity === 0 || media.classList.contains('is-in'));
+  row('css', startsHidden ? 'ok' : 'bad', 'Starts hidden',
+      reduced ? 'Skipped — reduced motion keeps everything visible by design.'
+              : 'Block begins at opacity 0 before it is scrolled into view.');
+
+  /* -------- script -------- */
+  if (reduced) {
+    row('js', 'info', 'Reveal controller',
+        'Not run, by design, because reduced motion is on.');
+    row('js', 'info', 'Scroll parallax', 'Not run, by design.');
+  } else {
+    row('js', 'wait', 'Reveal on entry', 'Scroll to the block below — this updates live.');
+    row('js', 'wait', 'Scroll parallax (--villa-p)', 'Scroll to the block below — this updates live.');
+
+    var seenIn = false, seenP = false;
+    var tick = setInterval(function () {
+      if (!seenIn && media.classList.contains('is-in')) {
+        seenIn = true;
+        var r = document.querySelectorAll('#js .row')[0];
+        r.querySelector('.tag').className = 'tag ok';
+        r.querySelector('.tag').textContent = 'pass';
+        r.querySelector('span:not(.tag)').textContent =
+          'Fired on entry — site.js is the current file.';
+      }
+      var p = getComputedStyle(block).getPropertyValue('--villa-p').trim();
+      if (!seenP && p !== '' && p !== '0.5000') {
+        seenP = true;
+        var r2 = document.querySelectorAll('#js .row')[1];
+        r2.querySelector('.tag').className = 'tag ok';
+        r2.querySelector('.tag').textContent = 'pass';
+        r2.querySelector('span:not(.tag)').textContent =
+          'Tracking the scroll — currently ' + p + '.';
+      }
+      if (seenIn && seenP) { clearInterval(tick); verdict(true); }
+    }, 200);
+  }
+
+  function verdict(live) {
+    var v = document.getElementById('verdict');
+    if (reduced) {
+      v.innerHTML = '<b>Reduced motion is switched on in your system.</b> The animation ' +
+        'is being suppressed deliberately — that is the accessibility fallback, not a bug. ' +
+        'Turn Reduce Motion off in your OS accessibility settings and reload.';
+    } else if (!reduced && !hasNewTiming) {
+      v.innerHTML = '<b>You are running an old site.css.</b> Delete the whole ' +
+        '<code>assets/</code> folder, unzip again, then hard-refresh ' +
+        '(Ctrl/Cmd + Shift + R).';
+    } else if (live) {
+      v.innerHTML = '<b>Everything is working.</b> Stylesheet and script are both current, ' +
+        'the reveal fires on entry and the parallax is tracking the scroll. If the home page ' +
+        'still looks static, you are viewing a different copy of the site — check the folder ' +
+        'you opened, and hard-refresh.';
+    }
+  }
+
+  if (reduced || !hasNewTiming) verdict(false);
+})();
+</script>
+</body>
+</html>

@@ -52,25 +52,13 @@
   // Transparent over the hero, solid once the page moves — the reference flips
   // at roughly the first fold, not immediately, so it doesn't flicker on nudge.
   if (hdr) {
-    // On the home page the hero is pinned and taller than the window, so the
-    // header has to stay transparent for the whole of that pin — flipping at
-    // 60px would drop a cream bar over the photograph mid-reveal.
-    var pinnedHero = $('[data-hero-reveal]');
     var stickAt = 60;
-    var measureStick = function () {
-      if (!pinnedHero) { stickAt = 60; return; }
-      var pane = $('.hero__media', pinnedHero);
-      var run  = pinnedHero.offsetHeight - (pane ? pane.offsetHeight : window.innerHeight);
-      stickAt = Math.max(60, run - 6);
-    };
     var onStick = function () {
       hdr.classList.toggle('is-stuck', window.scrollY > stickAt);
     };
-    measureStick();
     onStick();
     window.addEventListener('scroll', onStick, { passive: true });
-    window.addEventListener('resize', function () { measureStick(); onStick(); }, { passive: true });
-    window.addEventListener('load', function () { measureStick(); onStick(); });
+    window.addEventListener('resize', onStick, { passive: true });
   }
 
   // The reference uses one overlay menu at EVERY breakpoint — no desktop navbar.
@@ -233,45 +221,7 @@
     window.addEventListener('load', function () { measure(); request(); });
   }
 
-  /* --------------------------------------------------- 6. HERO SCROLL REVEAL */
-  // One number, --hero-p, running 0 -> 1 across the distance the pinned hero
-  // stays stuck. The picture, the wordmark and the scroll cue all read from it
-  // in CSS, so they can never fall out of step with one another or the scroll.
-  var heroPin = $('[data-hero-reveal]');
-  if (heroPin) {
-    if (REDUCED) {
-      heroPin.classList.add('is-static');
-    } else {
-      var hPane  = $('.hero__media', heroPin);
-      var hRun   = 1;
-      var hTop   = 0;
-      var hRaf   = null;
-      var hLast  = -1;
-
-      var measureHero = function () {
-        hTop = heroPin.getBoundingClientRect().top + window.scrollY;
-        hRun = Math.max(1, heroPin.offsetHeight - (hPane ? hPane.offsetHeight : window.innerHeight));
-      };
-      var paintHero = function () {
-        hRaf = null;
-        var p = clamp((window.scrollY - hTop) / hRun, 0, 1);
-        if (Math.abs(p - hLast) < 0.0004) return;
-        hLast = p;
-        heroPin.style.setProperty('--hero-p', p.toFixed(4));
-      };
-      var queueHero = function () {
-        if (!hRaf) hRaf = requestAnimationFrame(paintHero);
-      };
-
-      measureHero();
-      paintHero();
-      window.addEventListener('scroll', queueHero, { passive: true });
-      window.addEventListener('resize', function () { measureHero(); paintHero(); }, { passive: true });
-      window.addEventListener('load',   function () { measureHero(); paintHero(); });
-    }
-  }
-
-  /* ------------------------------------------------------- 6b. HERO SLIDESHOW */
+  /* -------------------------------------------------------- 6. HERO SLIDESHOW */
   var slides = $$('.hero__slide');
   if (slides.length > 1 && !REDUCED) {
     var idx = 0;
@@ -280,82 +230,6 @@
       idx = (idx + 1) % slides.length;
       slides[idx].classList.add('is-active');
     }, 6400);
-  }
-
-  /* ------------------------------------------- 6c. SUITES & VILLAS BLOCKS */
-  // Two jobs here, both scoped to .villa and deliberately kept off the
-  // site-wide reveal system.
-  //
-  //   1. A REPLAYABLE entrance. The shared reveal fires once and unobserves,
-  //      and its sweep re-reveals anything above the fold — so a block that
-  //      reset itself would be re-revealed on the next frame. These blocks own
-  //      [data-villa-in] instead, and reset when they are clear of the window
-  //      so scrolling back up plays the motion again.
-  //
-  //   2. --villa-p, 0 -> 1 across the block's passage through the window,
-  //      which CSS turns into the photograph's zoom-out and drift.
-  var villaBlocks = $$('.villa');
-
-  if (villaBlocks.length && !REDUCED) {
-    var villaParts = $$('[data-villa-in]');
-    var vPaint, vQueue;   // declared up here: vNear's callback calls vQueue
-
-    var vio = new IntersectionObserver(function (entries) {
-      entries.forEach(function (en) {
-        if (en.isIntersecting) { en.target.classList.add('is-in'); return; }
-        // Reset only once the part is genuinely clear of the window. Resetting
-        // the moment it stops intersecting would let a small scroll near the
-        // trigger line flicker it on and off.
-        var r = en.boundingClientRect;
-        if (r.bottom < 0 || r.top > window.innerHeight) {
-          en.target.classList.remove('is-in');
-        }
-      });
-    }, { rootMargin: '0px 0px -12% 0px', threshold: 0 });
-
-    villaParts.forEach(function (el) {
-      var d = el.getAttribute('data-villa-delay');
-      if (d) el.style.setProperty('--d', (parseFloat(d) / 1000) + 's');
-      vio.observe(el);
-    });
-
-    // Only blocks near the window are worth measuring each frame.
-    var vLive = [];
-    var vNear = new IntersectionObserver(function (entries) {
-      entries.forEach(function (en) {
-        var i = vLive.indexOf(en.target);
-        if (en.isIntersecting) { if (i < 0) vLive.push(en.target); }
-        else if (i > -1) { vLive.splice(i, 1); }
-      });
-      // Paint as soon as the live list changes. Observer callbacks are
-      // delivered after the scroll handler that caused them, so without this a
-      // block that becomes live on a jump — restored scroll position, anchor
-      // link, deep link — keeps the default --villa-p until the reader happens
-      // to scroll again, and then visibly snaps.
-      vQueue();
-    }, { rootMargin: '30% 0px 30% 0px', threshold: 0 });
-    villaBlocks.forEach(function (v) { vNear.observe(v); });
-
-    var vRaf = null;
-    vPaint = function () {
-      vRaf = null;
-      var vh = window.innerHeight;
-      for (var i = 0; i < vLive.length; i++) {
-        var el = vLive[i];
-        var r  = el.getBoundingClientRect();
-        // 0 when the block is just below the fold, 1 once it has fully left
-        // the top — so the zoom runs across the whole passage, not just the
-        // part of it that happens to be on screen.
-        var p = clamp((vh - r.top) / (vh + r.height), 0, 1);
-        el.style.setProperty('--villa-p', p.toFixed(4));
-      }
-    };
-    vQueue = function () { if (!vRaf) vRaf = requestAnimationFrame(vPaint); };
-
-    vPaint();
-    window.addEventListener('scroll', vQueue, { passive: true });
-    window.addEventListener('resize', vQueue, { passive: true });
-    window.addEventListener('load', vQueue);
   }
 
   /* --------------------------------------------------- 7. HERO MOUSE PARALLAX */
