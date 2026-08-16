@@ -15,27 +15,27 @@
 (function (root) {
   'use strict';
 
-  var BASE = 'https://www.sambodhiretreat.org/images/';
+  var BASE = 'new_img/';
 
   var IMAGES = {
     base: BASE,
 
     /* --- Hero / atmosphere ------------------------------------------------ */
     hero: [
-      BASE + 'Homepage_Resort_INDEX/top-slider-img8.jpg',
-      BASE + 'Homepage_Resort_INDEX/top-slider-img3.jpg',
-      BASE + 'Homepage_Resort_INDEX/top-slider-img7.jpg',
-      BASE + 'Homepage_Resort_INDEX/top-slider-img1a.jpg'
+      BASE + 'slider1.png',
+      BASE + 'slider3.png',
+      BASE + 'slider2.png',
+      BASE + 'slider4.png'
     ],
 
     pageHero: {
-      accommodations: BASE + 'Homepage_Resort_INDEX/top-slider-img11.jpg',
-      banquet:        BASE + 'promotions/1.jpg',
-      events:         BASE + 'Gallery/top-post-img3.jpg',
-      dining:         BASE + 'dining/restaurant1.jpg',
-      gallery:        BASE + 'Homepage_Resort_INDEX/top-slider-img10.jpg',
-      blog:           BASE + 'Gallery/Top-5-Places-in-Bodh-Gaya.jpg',
-      contact:        BASE + 'Homepage_Resort_INDEX/top-slider-img5.jpg'
+      accommodations: BASE + 'slider4.png',
+      banquet:        BASE + 'banquet1.png',
+      events:         BASE + 'event3.png',
+      dining:         BASE + 'dining1.png',
+      gallery:        BASE + 'gallery10.png',
+      blog:           BASE + 'blog.png',
+      contact:        BASE + 'contact.png'
     },
 
     /* --- Property / editorial -------------------------------------------- */
