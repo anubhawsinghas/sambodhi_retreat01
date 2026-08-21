@@ -279,12 +279,28 @@
   <!-- ============ HERO SLIDER ============ -->
   <section class="hero" aria-label="Sambodhi Retreat">
     <div class="hero-slider" id="heroSlider">
-      <div class="h-slide"><img alt="Sambodhi Retreat — poolside gardens at dusk" fetchpriority="high" /></div>
-      <div class="h-slide"><img alt="Sambodhi Retreat — palms and grounds at twilight" /></div>
-      <div class="h-slide"><img alt="Sambodhi Retreat — private candlelit dining" /></div>
+
+      <div class="h-slide active">
+        <img src="New_img/gallary/dhabaad-sambodhi1.png"
+             alt="Sambodhi Retreat — poolside gardens at dusk"
+             fetchpriority="high" />
+      </div>
+
+      <div class="h-slide">
+        <img src="New_img/slider2.png"
+             alt="Sambodhi Retreat — palms and grounds at twilight" />
+      </div>
+
+      <div class="h-slide">
+        <img src="New_img/gallary/bodhgya-sambodhi.png"
+             alt="Sambodhi Retreat — private candlelit dining" />
+      </div>
+
     </div>
+
     <div class="hero-overlay"></div>
     <div class="petals" id="heroPetals" aria-hidden="true"></div>
+
     <div class="hero-content">
       <p class="eyebrow r r1">Welcome to</p>
       <h1 class="serif r r2">Sambodhi Retreat</h1>
@@ -294,6 +310,7 @@
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
       </a>
     </div>
+
     <a href="#intro" class="scroll-cue" aria-label="Scroll to discover"><span>Discover</span><span class="track"></span></a>
   </section>
 
@@ -455,10 +472,6 @@
 
   /* logos */
   document.querySelectorAll('.logo-img').forEach(l => { l.src = ASSETS.logo; });
-
-  /* hero slider images */
-  const heroImgs = document.querySelectorAll('.h-slide img');
-  [ASSETS.bodhgaya, ASSETS.dhanbad, ASSETS.dinner].forEach((src,i)=>{ if(heroImgs[i]) heroImgs[i].src = src; });
 
   /* property images */
   document.querySelectorAll('.p-img').forEach(img=>{
